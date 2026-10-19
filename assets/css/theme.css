@@ -869,3 +869,64 @@ body.woocommerce-account .woocommerce-MyAccount-navigation.woocommerce-MyAccount
 /* ---------- IT-9 · États de commande ---------- */
 .gc-statut--pret-retrait { background: #CDE8C7; }
 .gc-statut--cancelled, .gc-statut--refunded, .gc-statut--failed { background: var(--fond-gris); color: #6E625F; }
+
+
+/* ---------- IT-10 · Promotions (US-10.2, maquettes D02, D05, D06) ---------- */
+/* Badge « Promo ! » rond, en haut à gauche de la carte et de la photo produit */
+ul.products li.product { position: relative; }
+ul.products li.product .onsale,
+.single-product div.product > .onsale {
+	position: absolute;
+	top: 18px;
+	left: 18px;
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 58px;
+	height: 58px;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: var(--rayon-pilule);
+	background: var(--couleur-rouge-profond);
+	color: var(--couleur-blanc);
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: none;
+}
+.single-product div.product { position: relative; }
+.price del { color: #6E625F; font-weight: 400; opacity: 1; margin-right: 6px; }
+.price ins { text-decoration: none; color: var(--couleur-rouge-profond); font-weight: 700; }
+
+/* Messages : succès en vert, erreur en rouge, information en crème */
+.woocommerce-notices-wrapper .woocommerce-message,
+.woocommerce-cart .woocommerce-message,
+.woocommerce-checkout .woocommerce-message {
+	background: #EAF3E6;
+	color: #23471F;
+	border: 0;
+	border-radius: var(--rayon-pilule);
+	padding: 12px 22px;
+	font-size: 15px;
+	font-weight: 600;
+}
+.woocommerce-notices-wrapper .woocommerce-message::before { color: #23471F; }
+.woocommerce-notices-wrapper .woocommerce-message a,
+.woocommerce-notices-wrapper .woocommerce-message .button { color: #23471F; background: transparent; padding: 0; }
+.woocommerce-notices-wrapper .woocommerce-error,
+.woocommerce-cart .woocommerce-error,
+.woocommerce-checkout .woocommerce-error {
+	background: #FBE9EC;
+	color: #8A001B;
+	border: 0;
+	border-radius: var(--rayon-lg);
+	padding: 12px 22px;
+	font-size: 15px;
+	font-weight: 600;
+	list-style: none;
+}
+.woocommerce-notices-wrapper .woocommerce-error::before { color: #8A001B; }
+.woocommerce-notices-wrapper .woocommerce-error li { margin: 0; }
