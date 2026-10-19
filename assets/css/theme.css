@@ -1,38 +1,204 @@
 /*
- * Styles du thème enfant.
- * IT-1 : socle typographique et couleurs de base, pour vérifier que le thème enfant est bien chargé.
- * L'habillage complet des maquettes arrive à l'IT-2 (US-2.1).
+ * Gong cha · styles du thème enfant
+ * IT-2 : apparence générale (US-2.1), grille boutique (US-2.3), fiche produit simple (US-2.4).
+ * Les couleurs de l'en-tête et des boutons sont aussi réglées dans l'outil de personnalisation
+ * (commandes it2-commandes.sh) pour que Storefront ne les écrase pas.
  */
 
+/* ---------- Base ---------- */
 body {
 	font-family: var(--police-texte);
 	color: var(--couleur-brun);
+	background: var(--couleur-blanc);
 }
 
-h1, h2, h3,
+h1, h2, h3, h4,
 .site-title,
+.entry-title,
 .woocommerce-loop-product__title,
+.woocommerce-loop-category__title,
 .product_title {
 	font-family: var(--police-titre);
 	font-weight: 400;
 	color: var(--couleur-brun);
+	letter-spacing: 0;
 }
 
-a {
-	color: var(--couleur-rouge-profond);
-}
+h1, .entry-title, .woocommerce-products-header__title { font-size: var(--texte-h1); line-height: 1.1; }
+h2, .section-title { font-size: var(--texte-h2); line-height: 1.1; }
 
-button,
-.button,
-input[type="submit"] {
+a { color: var(--couleur-rouge-profond); }
+a:hover, a:focus { color: #8A001B; }
+
+/* ---------- Boutons ---------- */
+button, .button, input[type="submit"], .added_to_cart,
+.woocommerce a.button, .woocommerce button.button {
 	border-radius: var(--rayon-pilule);
-	background-color: var(--couleur-rouge-profond);
+	background: var(--couleur-rouge-profond);
 	color: var(--couleur-blanc);
 	font-family: var(--police-texte);
 	font-weight: 600;
+	font-size: var(--texte-bouton);
+	padding: 0.85em 1.6em;
+	border: 0;
+}
+button:hover, .button:hover, input[type="submit"]:hover { background: #8A001B; color: var(--couleur-blanc); }
+
+/* Produit épuisé : « Lire la suite » en contour */
+.product.outofstock .button {
+	background: transparent;
+	color: var(--couleur-rouge-profond);
+	box-shadow: inset 0 0 0 2px var(--couleur-rouge-profond);
 }
 
+/* ---------- En-tête (US-2.1) ---------- */
 .site-header {
-	background-color: var(--couleur-rouge);
-	color: var(--couleur-blanc);
+	background: var(--couleur-rouge);
+	border-bottom: 0;
+	padding-top: var(--espace-6);
+	margin-bottom: 0;
 }
+.site-header .custom-logo-link img,
+.site-branding img { max-width: 190px; height: auto; }
+.site-header .site-title a,
+.site-header .site-description { color: var(--couleur-blanc); }
+
+.site-search .search-field,
+.site-search input[type="search"] {
+	border-radius: var(--rayon-pilule);
+	border: 0;
+	background: var(--couleur-blanc);
+	padding: 0.75em 1.25em;
+}
+
+.storefront-primary-navigation { background: var(--couleur-rouge); border-top: 1px solid rgba(255, 255, 255, 0.22); }
+.main-navigation ul.menu > li > a,
+.main-navigation ul.nav-menu > li > a { color: var(--couleur-blanc); font-weight: 600; }
+.main-navigation ul.menu > li.current-menu-item > a,
+.main-navigation ul.menu > li > a:hover { color: var(--accent-beige); box-shadow: inset 0 -3px 0 var(--accent-beige); }
+
+.site-header-cart .cart-contents,
+.site-header-cart .cart-contents .amount { color: var(--couleur-blanc); }
+.site-header-cart .cart-contents .count {
+	background: var(--accent-beige);
+	color: var(--couleur-brun);
+	border-radius: var(--rayon-pilule);
+	opacity: 1;
+}
+
+.menu-toggle { color: var(--couleur-blanc); border-color: var(--accent-beige); border-radius: var(--rayon-pilule); }
+
+/* Fil d'Ariane */
+.storefront-breadcrumb { background: transparent; margin-bottom: var(--espace-6); padding: var(--espace-6) 0 0; }
+.woocommerce-breadcrumb, .woocommerce-breadcrumb a { color: #6E625F; font-size: 14px; }
+
+/* ---------- Grille de produits (US-2.3) ---------- */
+ul.products li.product {
+	text-align: center;
+}
+ul.products li.product img,
+.storefront-product-section ul.products li.product img {
+	border-radius: var(--rayon-carte);
+	background: var(--degrade-the-au-lait);
+	padding: var(--espace-6) 18% 0;
+	margin-bottom: var(--espace-4);
+	box-sizing: border-box;
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	object-fit: contain;
+	object-position: bottom;
+}
+ul.products li.product.product_cat-the-toute-la-journee img { background: var(--degrade-toute-la-journee); }
+ul.products li.product.product_cat-the-au-lait img { background: var(--degrade-the-au-lait); }
+ul.products li.product.product_cat-the-aux-fruits img { background: var(--degrade-the-aux-fruits); }
+ul.products li.product.outofstock img { background: var(--fond-gris); opacity: 0.6; }
+
+ul.products li.product .woocommerce-loop-product__title { font-size: var(--texte-produit); line-height: 1.25; }
+ul.products li.product .price { color: var(--couleur-brun); font-weight: 600; }
+ul.products li.product .price del { color: #6E625F; font-weight: 400; }
+ul.products li.product .price ins { color: var(--couleur-rouge-profond); }
+
+.onsale {
+	background: var(--couleur-rouge-profond);
+	color: var(--couleur-blanc);
+	border: 0;
+	border-radius: var(--rayon-pilule);
+	font-weight: 700;
+	padding: 0.4em 0.9em;
+}
+
+/* Catégories sur l'accueil */
+ul.products li.product-category img { padding: var(--espace-6) 25% 0; }
+ul.products li.product-category .woocommerce-loop-category__title { font-size: 26px; }
+ul.products li.product-category .count { background: transparent; color: #6E625F; }
+
+/* Barre de tri et pagination */
+.storefront-sorting { border-top: 1px solid var(--fond-gris); border-bottom: 1px solid var(--fond-gris); padding: var(--espace-3) 0; }
+.woocommerce-ordering select { border-radius: var(--rayon-pilule); padding: 0.5em 1em; }
+
+/* Barre latérale : widgets en cartes crème */
+.widget-area .widget {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-lg);
+	padding: var(--espace-6);
+	margin-bottom: var(--espace-6);
+}
+.widget-area .widget .widget-title,
+.widget-area .widget .widgettitle {
+	font-family: var(--police-titre);
+	font-weight: 400;
+	font-size: 22px;
+	border: 0;
+	padding: 0;
+	margin-bottom: var(--espace-3);
+}
+
+/* ---------- Fiche produit (US-2.4) ---------- */
+.single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__image img {
+	border-radius: var(--rayon-carte);
+	background: var(--degrade-the-au-lait);
+	padding: var(--espace-8) 20% 0;
+	box-sizing: border-box;
+}
+.gc-cat-the-toute-la-journee div.product .woocommerce-product-gallery__image img { background: var(--degrade-toute-la-journee); }
+.gc-cat-the-aux-fruits div.product .woocommerce-product-gallery__image img { background: var(--degrade-the-aux-fruits); }
+
+.single-product div.product .product_title { font-size: var(--texte-h2); }
+.single-product div.product p.price { color: var(--couleur-rouge-profond); font-size: 28px; font-weight: 700; }
+.single-product div.product .woocommerce-product-details__short-description { font-size: var(--texte-courant); line-height: 1.45; }
+.single-product div.product form.cart .quantity .qty { border-radius: var(--rayon-pilule); padding: 0.7em; }
+.single-product div.product form.cart .single_add_to_cart_button { padding: 1em 2.2em; }
+
+/* Onglets en pastilles */
+.woocommerce-tabs ul.tabs { border: 0; display: flex; gap: var(--espace-2); flex-wrap: wrap; }
+.woocommerce-tabs ul.tabs li { border: 0; }
+.woocommerce-tabs ul.tabs li a {
+	background: var(--fond-creme-pastille);
+	border-radius: var(--rayon-pilule);
+	padding: 0.7em 1.4em;
+	color: var(--couleur-brun);
+	font-weight: 600;
+}
+.woocommerce-tabs ul.tabs li.active a { background: var(--accent-lavande); }
+.woocommerce-tabs ul.tabs li.active::after { display: none; }
+
+/* ---------- Pied de page ---------- */
+.site-footer { background: var(--couleur-brun); color: #E7DCCB; }
+.site-footer a, .site-footer .widget-title { color: var(--fond-creme); }
+.site-footer .widget-title { color: var(--accent-beige); }
+
+/* Barre fixe mobile Storefront */
+.storefront-handheld-footer-bar { background: var(--couleur-blanc); border-top: 1px solid var(--fond-gris); }
+.storefront-handheld-footer-bar ul li > a { color: var(--couleur-brun); }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 767px) {
+	h1, .entry-title, .woocommerce-products-header__title { font-size: 40px; }
+	h2, .section-title { font-size: 30px; }
+	ul.products li.product img { border-radius: 32px; }
+}
+
+/* Dégradés des cartes catégories */
+ul.products li.product-category.gc-cat-the-toute-la-journee img { background: var(--degrade-toute-la-journee); }
+ul.products li.product-category.gc-cat-the-au-lait img { background: var(--degrade-the-au-lait); }
+ul.products li.product-category.gc-cat-the-aux-fruits img { background: var(--degrade-the-aux-fruits); }
