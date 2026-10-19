@@ -1,0 +1,38 @@
+/*
+ * Styles du thème enfant.
+ * IT-1 : socle typographique et couleurs de base, pour vérifier que le thème enfant est bien chargé.
+ * L'habillage complet des maquettes arrive à l'IT-2 (US-2.1).
+ */
+
+body {
+	font-family: var(--police-texte);
+	color: var(--couleur-brun);
+}
+
+h1, h2, h3,
+.site-title,
+.woocommerce-loop-product__title,
+.product_title {
+	font-family: var(--police-titre);
+	font-weight: 400;
+	color: var(--couleur-brun);
+}
+
+a {
+	color: var(--couleur-rouge-profond);
+}
+
+button,
+.button,
+input[type="submit"] {
+	border-radius: var(--rayon-pilule);
+	background-color: var(--couleur-rouge-profond);
+	color: var(--couleur-blanc);
+	font-family: var(--police-texte);
+	font-weight: 600;
+}
+
+.site-header {
+	background-color: var(--couleur-rouge);
+	color: var(--couleur-blanc);
+}

@@ -1,0 +1,50 @@
+/*
+ * Variables de la charte Gong cha.
+ * Mêmes noms et mêmes valeurs que les variables Figma (« Couleurs Gong cha », « Formes Gong cha »).
+ */
+:root {
+	/* Couleurs */
+	--couleur-rouge: #C10230;
+	--couleur-rouge-profond: #B10023;
+	--couleur-brun: #382F2D;
+	--couleur-encre: #212121;
+	--couleur-blanc: #FFFFFF;
+	--fond-creme: #FCF6ED;
+	--fond-creme-pastille: #F9EDDC;
+	--fond-gris: #EDEDED;
+	--accent-beige: #F6E4CB;
+	--accent-or: #F1D09F;
+	--accent-lavande: #E0C7E6;
+
+	/* Dégradés des cartes catégories */
+	--degrade-toute-la-journee: linear-gradient(180deg, #8C3A1A 0%, #E7CDB4 100%);
+	--degrade-the-au-lait: linear-gradient(180deg, #A0AA4E 0%, #FFFFFF 100%);
+	--degrade-the-aux-fruits: linear-gradient(180deg, #A0AA4E 0%, #E78F93 100%);
+	--degrade-creations: linear-gradient(180deg, #C10230 0%, #F1D09F 100%);
+
+	/* Rayons */
+	--rayon-sm: 8px;
+	--rayon-md: 12px;
+	--rayon-lg: 24px;
+	--rayon-carte: 42px;
+	--rayon-pilule: 9999px;
+
+	/* Espacements (échelle de 4) */
+	--espace-1: 4px;
+	--espace-2: 8px;
+	--espace-3: 12px;
+	--espace-4: 16px;
+	--espace-6: 24px;
+	--espace-8: 32px;
+	--espace-12: 48px;
+	--espace-16: 64px;
+
+	/* Typographie */
+	--police-titre: 'Vidaloka', Georgia, serif;
+	--police-texte: 'Public Sans', system-ui, sans-serif;
+	--texte-h1: 61px;
+	--texte-h2: 47px;
+	--texte-produit: 21px;
+	--texte-courant: 18px;
+	--texte-bouton: 16px;
+}
