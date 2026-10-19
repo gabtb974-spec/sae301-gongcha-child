@@ -994,3 +994,34 @@ ul.products li.product .onsale,
 .gc-equipe-intro p { font-size: var(--texte-courant); line-height: 1.45; margin: 0; }
 .gc-membre__pied { flex-direction: column; align-items: flex-start; gap: 10px; }
 .gc-membre__prefere { max-width: 100%; }
+
+
+/* ---------- IT-12 · Collections (US-12.3, maquette D03) ---------- */
+.gc-collection-bandeau {
+	display: flex; flex-direction: column; gap: 12px;
+	padding: 40px 44px; margin-bottom: var(--espace-8);
+	border-radius: var(--rayon-carte);
+	background: var(--degrade-creations);
+	color: var(--couleur-brun);
+}
+.term-fruite-et-frais .gc-collection-bandeau { background: var(--degrade-the-aux-fruits); }
+.term-gourmand .gc-collection-bandeau { background: var(--degrade-the-au-lait); }
+.term-sans-lait .gc-collection-bandeau { background: linear-gradient(180deg, #E0C7E6 0%, #FCF6ED 100%); }
+.gc-collection-bandeau__surtitre { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.gc-collection-bandeau__titre { margin: 0; font-size: var(--texte-h1); line-height: 1.1; color: var(--couleur-brun); }
+.gc-collection-bandeau__texte p { margin: 0; font-size: var(--texte-courant); line-height: 1.45; max-width: 32em; }
+
+.gc-carte-termes {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-lg);
+	padding: 22px;
+	margin-bottom: 22px;
+	font-size: 15px;
+}
+.gc-carte-termes__titre { display: block; font-family: var(--police-titre); font-size: 22px; margin-bottom: 10px; }
+.gc-carte-termes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.gc-carte-termes li { margin: 0; padding: 0; border: 0; }
+.gc-carte-termes a { color: var(--couleur-brun); text-decoration: none; }
+.gc-carte-termes a:hover { color: var(--couleur-rouge-profond); text-decoration: underline; }
+.gc-carte-termes a.is-courant { color: var(--couleur-rouge-profond); font-weight: 700; }
+.gc-carte-termes a span { color: #6E625F; font-weight: 400; }
