@@ -41,7 +41,7 @@ add_filter( 'woocommerce_email_styles', function ( $css ) {
 
 /* US-8.3 : instructions de retrait dans les e-mails clients concernés, avant le détail de la commande. */
 add_action( 'woocommerce_email_before_order_table', function ( $order, $sent_to_admin, $plain_text, $email = null ) {
-	$concernes = array( 'customer_on_hold_order', 'customer_processing_order', 'customer_completed_order', 'customer_invoice' );
+	$concernes = array( 'customer_on_hold_order', 'customer_processing_order', 'customer_completed_order', 'customer_invoice', 'customer_pret_retrait' );
 	if ( $sent_to_admin || ! $email || ! in_array( $email->id, $concernes, true ) || ! function_exists( 'gongcha_commande_en_retrait' ) || ! gongcha_commande_en_retrait( $order ) ) {
 		return;
 	}

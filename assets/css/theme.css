@@ -864,3 +864,8 @@ body.woocommerce-account .woocommerce-MyAccount-navigation.woocommerce-MyAccount
 .storefront-sorting .woocommerce-pagination { float: none; margin: 0; padding: 0; }
 .woocommerce .woocommerce-result-count, p.woocommerce-result-count { line-height: 48px; margin: 0; padding: 0; font-size: 15px; color: #6E625F; }
 .storefront-sorting .woocommerce-pagination { margin-left: auto; }
+
+
+/* ---------- IT-9 · États de commande ---------- */
+.gc-statut--pret-retrait { background: #CDE8C7; }
+.gc-statut--cancelled, .gc-statut--refunded, .gc-statut--failed { background: var(--fond-gris); color: #6E625F; }
