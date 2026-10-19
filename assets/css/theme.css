@@ -1160,3 +1160,15 @@ p.stars a, p.stars a::before, p.stars a:hover ~ a::before { color: var(--couleur
 @media (max-width: 900px) {
 	.single-product div.product #reviews { grid-template-columns: 1fr; gap: 28px; }
 }
+
+
+/* ---------- IT-15 · Frais de préparation (US-15.3) ---------- */
+.gc-seuil {
+	margin: 0 0 var(--espace-4);
+	padding: 10px 16px;
+	border-radius: var(--rayon-pilule);
+	background: var(--accent-beige);
+	font-size: 14px;
+	font-weight: 600;
+}
+.gc-seuil--ok { background: #EAF3E6; color: #23471F; }

@@ -7,17 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/* Frais de préparation de la maquette D06. Mettre 0 pour les supprimer. */
-if ( ! defined( 'GONGCHA_FRAIS_PREPARATION' ) ) {
-	define( 'GONGCHA_FRAIS_PREPARATION', 0.50 );
-}
-
-add_action( 'woocommerce_cart_calculate_fees', function ( $cart ) {
-	if ( ( is_admin() && ! wp_doing_ajax() ) || GONGCHA_FRAIS_PREPARATION <= 0 || $cart->is_empty() ) {
-		return;
-	}
-	$cart->add_fee( __( 'Frais de préparation', 'gongcha-child' ), GONGCHA_FRAIS_PREPARATION, false );
-} );
+/* Frais de préparation : règle conditionnelle dans inc/frais-preparation.php (IT-15). */
 
 /* « Vous pourriez être intéressé(e) par… » : 2 produits sur 2 colonnes. */
 add_filter( 'woocommerce_cross_sells_total', function () {
