@@ -389,3 +389,165 @@ ul.products li.product-category.gc-cat-the-aux-fruits img { background: var(--de
 .single-product div.product .woocommerce-tabs ul.tabs li::after,
 .single-product div.product .woocommerce-tabs ul.tabs li a::after { display: none; }
 .single-product div.product .woocommerce-tabs .panel { width: 100%; float: none; }
+
+
+/* ---------- IT-5 · Panier (US-5.3, maquette D06) ---------- */
+body.woocommerce-cart h1.entry-title { font-size: var(--texte-h1); line-height: 1.1; }
+
+/* Tableau des articles */
+body.woocommerce-cart table.shop_table.cart {
+	border: 1px solid var(--fond-gris);
+	border-radius: var(--rayon-lg);
+	border-collapse: separate;
+	border-spacing: 0;
+	overflow: hidden;
+	font-size: 15px;
+	margin-bottom: var(--espace-8);
+}
+body.woocommerce-cart table.shop_table.cart thead th {
+	background: var(--fond-creme);
+	font-size: 14px;
+	font-weight: 700;
+	padding: 14px 18px;
+}
+body.woocommerce-cart table.shop_table.cart tbody tr td {
+	background: var(--couleur-blanc);
+	border-top: 1px solid var(--fond-gris);
+	padding: 18px;
+	vertical-align: middle;
+}
+body.woocommerce-cart table.shop_table.cart td.product-remove a.remove {
+	display: flex; align-items: center; justify-content: center;
+	width: 32px; height: 32px;
+	border-radius: var(--rayon-pilule);
+	background: var(--fond-creme-pastille);
+	color: var(--couleur-brun);
+	font-size: 18px; text-indent: 0; line-height: 1;
+	text-decoration: none;
+}
+body.woocommerce-cart table.shop_table.cart td.product-remove a.remove::before { display: none; }
+body.woocommerce-cart table.shop_table.cart td.product-remove a.remove:hover { background: var(--couleur-rouge-profond); color: var(--couleur-blanc); }
+
+body.woocommerce-cart table.shop_table.cart td.product-thumbnail img {
+	width: 92px; height: 92px; max-width: none;
+	padding: 6px 20px 0;
+	box-sizing: border-box;
+	object-fit: contain; object-position: bottom;
+	border-radius: var(--rayon-lg);
+	background: var(--degrade-the-au-lait);
+}
+body.woocommerce-cart tr.gc-cat-the-toute-la-journee td.product-thumbnail img { background: var(--degrade-toute-la-journee); }
+body.woocommerce-cart tr.gc-cat-the-aux-fruits td.product-thumbnail img { background: var(--degrade-the-aux-fruits); }
+
+body.woocommerce-cart table.shop_table.cart td.product-name a {
+	font-family: var(--police-titre);
+	font-size: var(--texte-produit);
+	color: var(--couleur-brun);
+	text-decoration: none;
+}
+/* Options choisies sur une ligne : « Noir · Froid · Niveau 2 · Standard » */
+body.woocommerce-cart table.shop_table.cart dl.variation { margin: 6px 0 0; color: #6E625F; font-size: 14px; }
+body.woocommerce-cart table.shop_table.cart dl.variation dt { display: none; }
+body.woocommerce-cart table.shop_table.cart dl.variation dd { display: inline; float: none; margin: 0; padding: 0; }
+body.woocommerce-cart table.shop_table.cart dl.variation dd p { display: inline; margin: 0; }
+body.woocommerce-cart table.shop_table.cart dl.variation dd:not(:last-of-type)::after { content: " · "; }
+body.woocommerce-cart table.shop_table.cart td.product-subtotal { font-weight: 700; }
+
+/* Quantité − / + (panier et fiche produit) */
+.quantity { display: inline-flex; align-items: center; height: 44px; border: 1px solid #D9CFC2; border-radius: var(--rayon-pilule); padding: 0 4px; box-sizing: border-box; background: var(--couleur-blanc); }
+.quantity .gc-qty-btn {
+	width: 36px; height: 36px; padding: 0;
+	background: transparent; color: var(--couleur-brun);
+	font-size: 18px; line-height: 1; border-radius: var(--rayon-pilule);
+}
+.quantity .gc-qty-btn:hover { background: var(--fond-creme-pastille); color: var(--couleur-brun); }
+.quantity input.qty,
+.single-product div.product form.cart .quantity .qty {
+	width: 36px; padding: 0; border: 0; box-shadow: none; background: transparent;
+	text-align: center; font-size: 16px; color: var(--couleur-brun);
+	-moz-appearance: textfield; appearance: textfield;
+}
+.quantity input.qty::-webkit-outer-spin-button,
+.quantity input.qty::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Code promo et mise à jour */
+body.woocommerce-cart table.shop_table.cart td.actions { padding: 16px 24px; }
+body.woocommerce-cart table.shop_table.cart td.actions .coupon { display: flex; gap: 10px; }
+body.woocommerce-cart table.shop_table.cart td.actions #coupon_code {
+	height: 46px; width: 220px; padding: 0 18px;
+	border: 1px solid #D9CFC2; border-radius: var(--rayon-pilule);
+	background: var(--couleur-blanc); box-shadow: none;
+}
+body.woocommerce-cart table.shop_table.cart td.actions button[name="apply_coupon"] { background: var(--couleur-brun); }
+body.woocommerce-cart table.shop_table.cart td.actions button[name="update_cart"] {
+	background: var(--couleur-blanc); color: #6E625F;
+	box-shadow: inset 0 0 0 2px #D9CFC2;
+}
+body.woocommerce-cart table.shop_table.cart td.actions button[name="update_cart"]:disabled { opacity: 0.6; }
+
+/* Suggestions à gauche, totaux à droite */
+body.woocommerce-cart .cart-collaterals {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 470px;
+	gap: var(--espace-12);
+	align-items: start;
+}
+body.woocommerce-cart .cart-collaterals::before,
+body.woocommerce-cart .cart-collaterals::after { display: none; }
+body.woocommerce-cart .cart-collaterals .cross-sells,
+body.woocommerce-cart .cart-collaterals .cart_totals { width: auto; float: none; margin: 0; }
+body.woocommerce-cart .cart-collaterals .cart_totals { grid-column: 2; }
+body.woocommerce-cart .cross-sells h2 { font-size: 36px; margin-bottom: 20px; }
+body.woocommerce-cart .cross-sells ul.products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--espace-6); }
+body.woocommerce-cart .cross-sells ul.products::before,
+body.woocommerce-cart .cross-sells ul.products::after { display: none; }
+body.woocommerce-cart .cross-sells ul.products li.product { width: auto; float: none; margin: 0; }
+
+/* Carte « Total panier » */
+body.woocommerce-cart .cart_totals {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-carte);
+	padding: 30px 32px;
+	font-size: 15px;
+}
+body.woocommerce-cart .cart_totals h2 { font-size: 30px; margin: 0 0 10px; }
+body.woocommerce-cart .cart_totals table.shop_table { margin: 0; border: 0; }
+body.woocommerce-cart .cart_totals table.shop_table tbody tr th,
+body.woocommerce-cart .cart_totals table.shop_table tbody tr td {
+	background: transparent;
+	border-top: 1px solid #E8DCC8;
+	padding: 12px 0;
+	font-weight: 400;
+	vertical-align: top;
+}
+body.woocommerce-cart .cart_totals table.shop_table tbody tr:first-child th,
+body.woocommerce-cart .cart_totals table.shop_table tbody tr:first-child td { border-top: 0; }
+body.woocommerce-cart .cart_totals table.shop_table tbody tr td { text-align: right; }
+body.woocommerce-cart .cart_totals tr.cart-discount td { color: #2E6B2E; font-weight: 600; }
+body.woocommerce-cart .cart_totals tr.cart-discount td a { font-weight: 400; font-size: 13px; }
+body.woocommerce-cart .cart_totals tr.order-total th,
+body.woocommerce-cart .cart_totals tr.order-total td { border-top: 2px solid var(--couleur-brun); font-weight: 700; font-size: 18px; }
+body.woocommerce-cart .cart_totals tr.order-total td strong { font-size: 26px; }
+
+/* Choix de l'expédition (US-5.4) */
+body.woocommerce-cart .cart_totals ul#shipping_method { list-style: none; margin: 0; padding: 0; text-align: left; }
+body.woocommerce-cart .cart_totals ul#shipping_method li { display: flex; gap: 8px; align-items: center; margin: 0 0 8px; text-indent: 0; padding: 0; }
+body.woocommerce-cart .cart_totals ul#shipping_method input[type="radio"] { width: 18px; height: 18px; margin: 0; accent-color: var(--couleur-rouge-profond); }
+body.woocommerce-cart .cart_totals .woocommerce-shipping-destination { font-size: 13px; color: #6E625F; text-align: left; margin: 4px 0 0; }
+
+body.woocommerce-cart .wc-proceed-to-checkout { padding: var(--espace-2) 0 0; }
+body.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+	display: block; width: 100%;
+	padding: 16px; margin: 0;
+	font-size: 16px; font-weight: 600; text-align: center;
+	border-radius: var(--rayon-pilule);
+}
+
+@media (max-width: 900px) {
+	body.woocommerce-cart .cart-collaterals { grid-template-columns: 1fr; }
+	body.woocommerce-cart .cart-collaterals .cart_totals { grid-column: auto; }
+}
+@media (max-width: 767px) {
+	body.woocommerce-cart table.shop_table.cart td.actions .coupon { flex-direction: column; }
+	body.woocommerce-cart table.shop_table.cart td.actions #coupon_code { width: 100%; }
+}
