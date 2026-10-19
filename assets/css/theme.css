@@ -1095,3 +1095,68 @@ ul.products li.product .onsale,
 }
 .single-product .site-main .upsells ul.products li.product img,
 .single-product .site-main .related ul.products li.product img { padding: 10px 35% 0; }
+
+
+/* ---------- IT-14 · Avis clients (US-14.1, maquette D05) ---------- */
+/* Étoiles en rouge Gong cha */
+.star-rating span::before,
+.star-rating::before { color: var(--couleur-rouge-profond); }
+.star-rating::before { opacity: 0.35; }
+.woocommerce-product-rating { display: flex; gap: 10px; align-items: center; font-size: 15px; }
+.woocommerce-product-rating .star-rating { margin: 0; }
+p.stars a, p.stars a::before, p.stars a:hover ~ a::before { color: var(--couleur-rouge-profond); }
+
+/* Liste des avis à gauche, formulaire à droite */
+.single-product div.product #reviews {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 420px;
+	gap: 48px;
+	align-items: start;
+}
+.single-product div.product #reviews > .clear { display: none; }
+.single-product div.product #reviews #comments,
+.single-product div.product #reviews #review_form_wrapper { width: auto; float: none; margin: 0; }
+.single-product div.product #reviews #comments > h2 { font-size: 24px; margin-bottom: 12px; }
+
+.single-product div.product #reviews .commentlist { list-style: none; margin: 0; padding: 0; }
+.single-product div.product #reviews .commentlist li.review { margin: 0; padding: 18px 0; border-bottom: 1px solid var(--fond-gris); }
+.single-product div.product #reviews .commentlist li.review:last-child { border-bottom: 0; }
+.single-product div.product #reviews .comment_container { display: flex; gap: 14px; }
+.single-product div.product #reviews .comment-text { width: auto; float: none; margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 6px; }
+.single-product div.product #reviews .comment-text .star-rating { float: none; order: 2; font-size: 14px; }
+.single-product div.product #reviews .comment-text .meta { order: 1; margin: 0; font-size: 15px; }
+.single-product div.product #reviews .comment-text .description { order: 3; line-height: 1.5; }
+.single-product div.product #reviews .comment-text .description p { margin: 0; }
+.woocommerce-review__verified { color: #2E6B2E; font-weight: 600; font-style: normal; }
+.woocommerce-review__published-date { color: #6E625F; }
+.gc-avis-initiale {
+	flex: none; width: 48px; height: 48px;
+	display: flex; align-items: center; justify-content: center;
+	border-radius: var(--rayon-pilule);
+	background: var(--accent-lavande);
+	font-weight: 700; color: var(--couleur-brun);
+}
+.commentlist li.review:nth-child(even) .gc-avis-initiale { background: var(--accent-or); }
+
+/* Carte « Ajouter un avis » */
+.single-product div.product #review_form_wrapper,
+.single-product div.product #reviews .woocommerce-verification-required {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-lg);
+	padding: 24px;
+	margin: 0;
+}
+.single-product div.product #review_form #respond { padding: 0; margin: 0; background: transparent; border: 0; }
+.single-product div.product #review_form .comment-reply-title { display: block; font-family: var(--police-titre); font-size: 24px; margin-bottom: 8px; }
+.gc-avis-regle { font-size: 14px; color: #6E625F; margin: 0 0 10px; }
+.single-product div.product #review_form textarea {
+	width: 100%; min-height: 110px; padding: 10px;
+	border: 1px solid #D9CFC2; border-radius: var(--rayon-md);
+	background: var(--couleur-blanc); box-shadow: none;
+}
+.single-product div.product #review_form label { font-weight: 600; }
+.single-product div.product #review_form .form-submit { margin: 0; }
+
+@media (max-width: 900px) {
+	.single-product div.product #reviews { grid-template-columns: 1fr; gap: 28px; }
+}
