@@ -1025,3 +1025,73 @@ ul.products li.product .onsale,
 .gc-carte-termes a:hover { color: var(--couleur-rouge-profond); text-decoration: underline; }
 .gc-carte-termes a.is-courant { color: var(--couleur-rouge-profond); font-weight: 700; }
 .gc-carte-termes a span { color: #6E625F; font-weight: 400; }
+
+
+/* ---------- IT-13 · Ventes croisées (US-13.2, maquettes D04, D05, D06) ---------- */
+.single-product .upsells.products,
+.single-product .related.products { clear: both; padding-top: var(--espace-12); }
+.single-product .upsells.products > h2,
+.single-product .related.products > h2,
+.woocommerce-cart .cross-sells > h2 { font-size: 36px; margin-bottom: 20px; text-align: left; }
+
+/* Cartes compactes : visuel de 200 px, nom, prix, pas de bouton (fiche produit) */
+.single-product .upsells ul.products,
+.single-product .related ul.products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.single-product .upsells ul.products::before, .single-product .upsells ul.products::after,
+.single-product .related ul.products::before, .single-product .related ul.products::after { display: none; }
+.single-product .upsells ul.products li.product,
+.single-product .related ul.products li.product { width: auto; float: none; margin: 0; }
+.single-product .upsells ul.products li.product img,
+.single-product .related ul.products li.product img,
+.woocommerce-cart .cross-sells ul.products li.product img {
+	aspect-ratio: auto;
+	height: 200px;
+	padding: 10px 30% 0;
+}
+.single-product .upsells ul.products li.product .button,
+.single-product .related ul.products li.product .button { display: none; }
+.gc-a-partir { font-weight: 400; }
+
+@media (max-width: 767px) {
+	.single-product .upsells ul.products,
+	.single-product .related ul.products { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+/* Correctif IT-13 : cartes de suggestions en pleine largeur de colonne, titre à gauche */
+.single-product .site-main .upsells.products,
+.single-product .site-main .related.products { width: 100%; float: none; clear: both; }
+.single-product .site-main .upsells.products > h2,
+.single-product .site-main .related.products > h2 { text-align: left; }
+.single-product .site-main .upsells ul.products[class*="columns-"] li.product,
+.single-product .site-main .related ul.products[class*="columns-"] li.product,
+.woocommerce-cart .site-main .cross-sells ul.products[class*="columns-"] li.product {
+	width: 100%; float: none; margin: 0; clear: none;
+}
+.single-product .site-main .upsells ul.products li.product img,
+.single-product .site-main .related ul.products li.product img { padding: 10px 35% 0; }
+
+/* Correctif IT-13 : cartes de suggestions en pleine largeur de colonne, titre à gauche */
+.single-product .site-main .upsells.products,
+.single-product .site-main .related.products { width: 100%; float: none; clear: both; }
+.single-product .site-main .upsells.products > h2,
+.single-product .site-main .related.products > h2 { text-align: left; }
+.single-product .site-main .upsells ul.products[class*="columns-"] li.product,
+.single-product .site-main .related ul.products[class*="columns-"] li.product,
+.woocommerce-cart .site-main .cross-sells ul.products[class*="columns-"] li.product {
+	width: 100%; float: none; margin: 0; clear: none;
+}
+.single-product .site-main .upsells ul.products li.product img,
+.single-product .site-main .related ul.products li.product img { padding: 10px 35% 0; }
+
+/* Correctif IT-13 : cartes de suggestions en pleine largeur de colonne, titre à gauche */
+.single-product .site-main .upsells.products,
+.single-product .site-main .related.products { width: 100%; float: none; clear: both; }
+.single-product .site-main .upsells.products > h2,
+.single-product .site-main .related.products > h2 { text-align: left; }
+.single-product .site-main .upsells ul.products[class*="columns-"] li.product,
+.single-product .site-main .related ul.products[class*="columns-"] li.product,
+.woocommerce-cart .site-main .cross-sells ul.products[class*="columns-"] li.product {
+	width: 100%; float: none; margin: 0; clear: none;
+}
+.single-product .site-main .upsells ul.products li.product img,
+.single-product .site-main .related ul.products li.product img { padding: 10px 35% 0; }
