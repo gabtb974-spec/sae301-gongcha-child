@@ -202,3 +202,145 @@ ul.products li.product-category .count { background: transparent; color: #6E625F
 ul.products li.product-category.gc-cat-the-toute-la-journee img { background: var(--degrade-toute-la-journee); }
 ul.products li.product-category.gc-cat-the-au-lait img { background: var(--degrade-the-au-lait); }
 ul.products li.product-category.gc-cat-the-aux-fruits img { background: var(--degrade-the-aux-fruits); }
+
+
+/* ---------- IT-3 · Sélecteur d'options en pastilles (US-3.2) ---------- */
+.single-product div.product form.variations_form {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-carte);
+	padding: var(--espace-8);
+	margin-bottom: var(--espace-6);
+}
+.gc-options-title {
+	font-family: var(--police-titre);
+	font-size: 30px;
+	margin: 0 0 var(--espace-6);
+}
+.single-product div.product table.variations,
+.single-product div.product table.variations tr,
+.single-product div.product table.variations th,
+.single-product div.product table.variations td {
+	display: block;
+	background: transparent;
+	border: 0;
+	padding: 0;
+}
+.single-product div.product table.variations tr { margin-bottom: var(--espace-6); }
+.single-product div.product table.variations th.label label {
+	font-weight: 700;
+	color: var(--couleur-brun);
+	margin-bottom: var(--espace-2);
+	display: block;
+}
+.gc-select-hidden {
+	position: absolute !important;
+	width: 1px; height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}
+.gc-pills { display: flex; flex-wrap: wrap; gap: var(--espace-2); }
+.gc-pill {
+	background: var(--fond-creme-pastille);
+	color: var(--couleur-brun);
+	border: 0;
+	border-radius: var(--rayon-pilule);
+	padding: 0.65em 1.2em;
+	font-family: var(--police-texte);
+	font-weight: 600;
+	font-size: 15px;
+	cursor: pointer;
+}
+.gc-pill:hover { background: #F1DFC6; color: var(--couleur-brun); }
+.gc-pill:focus-visible { outline: 2px solid var(--couleur-rouge-profond); outline-offset: 2px; }
+.gc-pill.is-selected { background: var(--accent-lavande); }
+.gc-pill.is-disabled {
+	background: var(--fond-gris);
+	color: #6E625F;
+	text-decoration: line-through;
+	cursor: not-allowed;
+}
+.single-product div.product .reset_variations { font-size: 14px; display: inline-block; margin-top: var(--espace-2); }
+
+/* Prix et stock de la variation choisie (US-3.3) */
+.single-product div.product .woocommerce-variation-price .price {
+	font-size: 26px;
+	font-weight: 700;
+	color: var(--couleur-rouge-profond);
+}
+.single-product div.product .stock { font-weight: 600; }
+.single-product div.product .stock.in-stock { color: #2E6B2E; }
+.single-product div.product .stock.out-of-stock { color: #8A001B; }
+.single-product div.product .woocommerce-variation-add-to-cart { display: flex; gap: var(--espace-3); align-items: center; }
+
+
+/* ---------- IT-3 · Sélecteur d'options en pastilles (US-3.2) ---------- */
+.single-product div.product form.variations_form {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-carte);
+	padding: var(--espace-8);
+	margin-bottom: var(--espace-6);
+}
+.gc-options-title {
+	font-family: var(--police-titre);
+	font-size: 30px;
+	margin: 0 0 var(--espace-6);
+}
+.single-product div.product table.variations,
+.single-product div.product table.variations tr,
+.single-product div.product table.variations th,
+.single-product div.product table.variations td {
+	display: block;
+	background: transparent;
+	border: 0;
+	padding: 0;
+}
+.single-product div.product table.variations tr { margin-bottom: var(--espace-6); }
+.single-product div.product table.variations th.label label {
+	font-weight: 700;
+	color: var(--couleur-brun);
+	margin-bottom: var(--espace-2);
+	display: block;
+}
+.gc-select-hidden {
+	position: absolute !important;
+	width: 1px; height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}
+.gc-pills { display: flex; flex-wrap: wrap; gap: var(--espace-2); }
+.gc-pill {
+	background: var(--fond-creme-pastille);
+	color: var(--couleur-brun);
+	border: 0;
+	border-radius: var(--rayon-pilule);
+	padding: 0.65em 1.2em;
+	font-family: var(--police-texte);
+	font-weight: 600;
+	font-size: 15px;
+	cursor: pointer;
+}
+.gc-pill:hover { background: #F1DFC6; color: var(--couleur-brun); }
+.gc-pill:focus-visible { outline: 2px solid var(--couleur-rouge-profond); outline-offset: 2px; }
+.gc-pill.is-selected { background: var(--accent-lavande); }
+.gc-pill.is-disabled {
+	background: var(--fond-gris);
+	color: #6E625F;
+	text-decoration: line-through;
+	cursor: not-allowed;
+}
+.single-product div.product .reset_variations { font-size: 14px; display: inline-block; margin-top: var(--espace-2); }
+
+/* Prix et stock de la variation choisie (US-3.3) */
+.single-product div.product .woocommerce-variation-price .price {
+	font-size: 26px;
+	font-weight: 700;
+	color: var(--couleur-rouge-profond);
+}
+.single-product div.product .stock { font-weight: 600; }
+.single-product div.product .stock.in-stock { color: #2E6B2E; }
+.single-product div.product .stock.out-of-stock { color: #8A001B; }
+.single-product div.product .woocommerce-variation-add-to-cart { display: flex; gap: var(--espace-3); align-items: center; }
+
+/* IT-3 · Correctif : Storefront écrase le padding du formulaire */
+.single-product div.product form.cart.variations_form { padding: var(--espace-8); }
+.gc-pill.is-selected { box-shadow: inset 0 0 0 2px var(--couleur-brun); }
