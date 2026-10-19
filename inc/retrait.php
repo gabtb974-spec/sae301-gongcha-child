@@ -2,7 +2,7 @@
 /**
  * IT-6 · Instructions pour le retrait (US-6.1, US-6.2).
  * Texte réglable dans WooCommerce › Réglages › Expédition › Options d'expédition,
- * affiché dans le formulaire de validation, sur la page de confirmation et dans l'e-mail.
+ * affiché dans le formulaire de validation et sur la page de confirmation.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -100,20 +100,4 @@ add_action( 'woocommerce_thankyou', function ( $order_id ) {
 	}
 }, 5 );
 
-/* Rappel dans l'e-mail envoyé au client. */
-add_action( 'woocommerce_email_after_order_table', function ( $order, $sent_to_admin, $plain_text ) {
-	if ( $sent_to_admin || ! gongcha_commande_en_retrait( $order ) ) {
-		return;
-	}
-	$texte = gongcha_instructions_retrait();
-	$lieu  = get_option( 'gongcha_lieu_retrait', '' );
-	if ( $plain_text ) {
-		echo "\n" . esc_html__( 'Instructions pour le retrait', 'gongcha-child' ) . "\n" . wp_strip_all_tags( $texte ) . ( $lieu ? "\n" . $lieu : '' ) . "\n\n";
-		return;
-	}
-	echo '<h2>' . esc_html__( 'Instructions pour le retrait', 'gongcha-child' ) . '</h2>';
-	echo wp_kses_post( wpautop( $texte ) );
-	if ( $lieu ) {
-		echo '<p><strong>' . esc_html( $lieu ) . '</strong></p>';
-	}
-}, 10, 3 );
+/* Le rappel dans les e-mails est géré par inc/emails.php (IT-8, US-8.3). */
