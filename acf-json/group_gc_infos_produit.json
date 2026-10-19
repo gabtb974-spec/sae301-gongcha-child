@@ -1,0 +1,92 @@
+{
+    "key": "group_gc_infos_produit",
+    "title": "Informations produit (IT-4)",
+    "fields": [
+        {
+            "key": "field_gc_composition",
+            "label": "Composition",
+            "name": "gc_composition",
+            "type": "text",
+            "instructions": "Ingrédients principaux, séparés par des virgules.",
+            "required": 0,
+            "placeholder": "thé noir, lait, perles de tapioca"
+        },
+        {
+            "key": "field_gc_allergenes",
+            "label": "Allergènes",
+            "name": "gc_allergenes",
+            "type": "checkbox",
+            "instructions": "Allergènes majeurs présents dans la recette de base. Ne rien cocher s'il n'y en a aucun.",
+            "required": 0,
+            "choices": {
+                "lait": "Lait",
+                "oeuf": "Œuf",
+                "soja": "Soja",
+                "gluten": "Gluten",
+                "fruits-a-coque": "Fruits à coque",
+                "arachides": "Arachides",
+                "sulfites": "Sulfites"
+            },
+            "layout": "horizontal",
+            "return_format": "label",
+            "toggle": 0,
+            "allow_custom": 0
+        },
+        {
+            "key": "field_gc_kcal",
+            "label": "Énergie",
+            "name": "gc_kcal",
+            "type": "number",
+            "instructions": "Pour la taille Regular, douceur standard.",
+            "min": 0,
+            "step": 1,
+            "append": "kcal",
+            "wrapper": { "width": "33" }
+        },
+        {
+            "key": "field_gc_sucres",
+            "label": "Sucres",
+            "name": "gc_sucres",
+            "type": "number",
+            "min": 0,
+            "step": 1,
+            "append": "g",
+            "wrapper": { "width": "33" }
+        },
+        {
+            "key": "field_gc_contenance",
+            "label": "Contenance",
+            "name": "gc_contenance",
+            "type": "number",
+            "default_value": 500,
+            "min": 0,
+            "step": 10,
+            "append": "ml",
+            "wrapper": { "width": "34" }
+        },
+        {
+            "key": "field_gc_remarque",
+            "label": "Remarque",
+            "name": "gc_remarque",
+            "type": "textarea",
+            "instructions": "Précision affichée sous le bloc (ex. allergènes apportés par une garniture).",
+            "rows": 2,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            { "param": "post_type", "operator": "==", "value": "product" }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Champs affichés sur la fiche produit, avant le prix (US-4.3).",
+    "show_in_rest": 0,
+    "modified": 1760860800
+}
