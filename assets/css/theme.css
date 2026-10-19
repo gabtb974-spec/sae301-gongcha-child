@@ -551,3 +551,141 @@ body.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
 	body.woocommerce-cart table.shop_table.cart td.actions .coupon { flex-direction: column; }
 	body.woocommerce-cart table.shop_table.cart td.actions #coupon_code { width: 100%; }
 }
+
+/* Correctif badge panier de l'en-tête */
+.site-header-cart .cart-contents .count {
+	background: transparent; color: var(--couleur-blanc);
+	opacity: 0.85; width: auto; height: auto; padding: 0; margin-left: 6px;
+	font-size: 14px; line-height: inherit; border: 0; box-shadow: none;
+}
+
+
+/* ---------- IT-6 · Validation de commande (maquette D07) ---------- */
+body.woocommerce-checkout h1.entry-title { font-size: var(--texte-h1); line-height: 1.1; }
+
+/* Instructions pour le retrait : cadre à bord dégradé */
+.gc-retrait {
+	background: var(--degrade-creations);
+	border-radius: var(--rayon-carte);
+	padding: 3px;
+	margin: var(--espace-6) 0;
+}
+.gc-retrait__inner {
+	background: var(--couleur-blanc);
+	border-radius: 39px;
+	padding: 24px 28px;
+	line-height: 1.55;
+}
+.gc-retrait__titre {
+	font-family: var(--police-titre);
+	font-weight: 400;
+	font-size: 26px;
+	margin: 0 0 var(--espace-2);
+}
+.gc-retrait p { margin: 0 0 var(--espace-2); }
+.gc-retrait__lieu span {
+	display: inline-block;
+	padding: 8px 16px;
+	background: var(--accent-lavande);
+	border-radius: var(--rayon-pilule);
+	font-weight: 600;
+}
+
+/* Bandeaux « Vous avez déjà commandé ? » / « Vous avez un code promo ? » */
+body.woocommerce-checkout .woocommerce-form-login-toggle .woocommerce-info,
+body.woocommerce-checkout .woocommerce-form-coupon-toggle .woocommerce-info {
+	background: var(--fond-creme);
+	color: var(--couleur-brun);
+	border: 0;
+	border-radius: var(--rayon-pilule);
+	padding: 13px 22px;
+}
+body.woocommerce-checkout .woocommerce-form-login-toggle .woocommerce-info::before,
+body.woocommerce-checkout .woocommerce-form-coupon-toggle .woocommerce-info::before { display: none; }
+body.woocommerce-checkout .woocommerce-info a { font-weight: 600; }
+
+/* Champs */
+body.woocommerce-checkout form.checkout .form-row label { font-weight: 600; }
+body.woocommerce-checkout form.checkout .input-text,
+body.woocommerce-checkout form.checkout select,
+body.woocommerce-checkout form.checkout .select2-container .select2-selection {
+	min-height: 48px;
+	border: 1px solid #D9CFC2;
+	border-radius: var(--rayon-md);
+	background: var(--couleur-blanc);
+	box-shadow: none;
+	padding: 0 14px;
+}
+body.woocommerce-checkout form.checkout textarea.input-text { padding: 12px 14px; }
+body.woocommerce-checkout form.checkout h3 { font-size: 36px; }
+
+/* Récapitulatif « Votre commande » */
+body.woocommerce-checkout #order_review_heading { font-size: 30px; }
+body.woocommerce-checkout form.checkout #order_review {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-carte);
+	padding: 30px 32px;
+}
+body.woocommerce-checkout form.checkout table.shop_table { border: 0; margin: 0 0 var(--espace-4); font-size: 15px; }
+body.woocommerce-checkout form.checkout table.shop_table thead th,
+body.woocommerce-checkout form.checkout table.shop_table tbody tr td,
+body.woocommerce-checkout form.checkout table.shop_table tfoot tr th,
+body.woocommerce-checkout form.checkout table.shop_table tfoot tr td {
+	background: transparent;
+	border-top: 1px solid #E8DCC8;
+	padding: 12px 0;
+}
+body.woocommerce-checkout form.checkout table.shop_table td.product-total,
+body.woocommerce-checkout form.checkout table.shop_table tfoot td { text-align: right; }
+body.woocommerce-checkout form.checkout table.shop_table tr.order-total th,
+body.woocommerce-checkout form.checkout table.shop_table tr.order-total td { border-top: 2px solid var(--couleur-brun); font-size: 18px; }
+body.woocommerce-checkout form.checkout table.shop_table tr.order-total td strong { font-size: 26px; }
+body.woocommerce-checkout form.checkout table.shop_table dl.variation { font-size: 13px; color: #6E625F; margin: 3px 0 0; }
+body.woocommerce-checkout form.checkout table.shop_table dl.variation dt { display: none; }
+body.woocommerce-checkout form.checkout table.shop_table dl.variation dd { display: inline; float: none; margin: 0; }
+body.woocommerce-checkout form.checkout table.shop_table dl.variation dd p { display: inline; margin: 0; }
+body.woocommerce-checkout form.checkout table.shop_table dl.variation dd:not(:last-of-type)::after { content: " · "; }
+body.woocommerce-checkout form.checkout ul#shipping_method { list-style: none; margin: 0; padding: 0; text-align: left; }
+body.woocommerce-checkout form.checkout ul#shipping_method li { display: flex; gap: 8px; align-items: center; margin: 0 0 8px; text-indent: 0; padding: 0; }
+body.woocommerce-checkout form.checkout input[type="radio"],
+body.woocommerce-checkout form.checkout input[type="checkbox"] { accent-color: var(--couleur-rouge-profond); width: 18px; height: 18px; }
+
+/* Moyens de paiement */
+body.woocommerce-checkout form.checkout #payment { background: transparent; border-radius: 0; }
+body.woocommerce-checkout form.checkout #payment ul.payment_methods { border: 0; padding: 0; margin: 0 0 var(--espace-4); }
+body.woocommerce-checkout form.checkout #payment ul.payment_methods > li.wc_payment_method {
+	background: var(--couleur-blanc);
+	border: 1px solid #E8DCC8;
+	border-radius: var(--rayon-lg);
+	padding: 14px 18px;
+	margin: 0 0 10px;
+	list-style: none;
+}
+body.woocommerce-checkout form.checkout #payment ul.payment_methods > li.wc_payment_method:has(input:checked) {
+	border: 2px solid var(--couleur-rouge-profond);
+}
+body.woocommerce-checkout form.checkout #payment ul.payment_methods > li > label { font-weight: 700; display: inline; }
+body.woocommerce-checkout form.checkout #payment ul.payment_methods > li > label::before { display: none; }
+body.woocommerce-checkout form.checkout #payment div.payment_box {
+	background: transparent;
+	color: #6E625F;
+	font-size: 14px;
+	padding: 6px 0 0 28px;
+	margin: 0;
+}
+body.woocommerce-checkout form.checkout #payment div.payment_box::before { display: none; }
+body.woocommerce-checkout form.checkout #payment .place-order { padding: 0; background: transparent; }
+body.woocommerce-checkout form.checkout #payment .woocommerce-privacy-policy-text { font-size: 13px; color: #6E625F; }
+body.woocommerce-checkout form.checkout #payment #place_order {
+	width: 100%;
+	height: 56px;
+	font-size: 17px;
+	border-radius: var(--rayon-pilule);
+	float: none;
+}
+
+/* Page « Commande reçue » */
+body.woocommerce-order-received .woocommerce-thankyou-order-received {
+	font-family: var(--police-titre);
+	font-size: 30px;
+}
