@@ -930,3 +930,67 @@ ul.products li.product .onsale,
 }
 .woocommerce-notices-wrapper .woocommerce-error::before { color: #8A001B; }
 .woocommerce-notices-wrapper .woocommerce-error li { margin: 0; }
+
+
+/* ---------- IT-11 · Équipe (US-11.4, maquettes D12, D13) ---------- */
+.gc-degrade--rouge-or { background: var(--degrade-creations); }
+.gc-degrade--vert-rose { background: var(--degrade-the-aux-fruits); }
+.gc-degrade--rouge-lavande { background: linear-gradient(180deg, #C10230 0%, #E0C7E6 100%); }
+.gc-initiale { font-family: var(--police-titre); font-size: 140px; color: var(--couleur-blanc); opacity: 0.85; line-height: 1; }
+
+.gc-equipe-entete { max-width: 760px; margin-bottom: var(--espace-8); }
+.gc-equipe-entete h1 { font-size: var(--texte-h1); line-height: 1.1; margin: 0 0 12px; }
+.gc-equipe-entete p { font-size: var(--texte-courant); line-height: 1.45; margin: 0; }
+
+.gc-membres { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.gc-membres li { margin: 0; }
+.gc-membre { display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: var(--couleur-brun); }
+.gc-membre:hover, .gc-membre:focus { color: var(--couleur-brun); }
+.gc-membre:focus-visible { outline: 2px solid var(--couleur-rouge-profond); outline-offset: 4px; border-radius: var(--rayon-carte); }
+.gc-membre__visuel {
+	height: 400px; border-radius: var(--rayon-carte); overflow: hidden;
+	display: flex; align-items: center; justify-content: center;
+}
+.gc-membre__visuel img, .gc-profil__visuel img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.gc-membre__nom { font-family: var(--police-titre); font-size: 26px; }
+.gc-membre__poste { color: #6E625F; }
+.gc-membre__pied { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.gc-membre__prefere { padding: 6px 14px; background: var(--fond-creme-pastille); border-radius: var(--rayon-pilule); font-size: 14px; font-weight: 600; }
+.gc-membre__lien { color: var(--couleur-rouge-profond); font-weight: 600; }
+.gc-membre:hover .gc-membre__lien { text-decoration: underline; }
+
+.gc-profil { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 64px; align-items: start; }
+.gc-profil__visuel { height: 520px; border-radius: var(--rayon-carte); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.gc-profil__texte { display: flex; flex-direction: column; gap: 18px; padding-top: 12px; }
+.gc-profil__poste { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--couleur-rouge-profond); }
+.gc-profil__nom { margin: 0; font-size: var(--texte-h1); line-height: 1.1; }
+.gc-profil__bio { font-size: var(--texte-courant); line-height: 1.55; max-width: 34em; }
+.gc-profil__bio p:last-child { margin-bottom: 0; }
+.gc-profil__boisson {
+	display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+	max-width: 520px; padding: 20px 26px 0; overflow: hidden;
+	background: var(--fond-creme); border-radius: var(--rayon-carte);
+}
+.gc-profil__boisson > span { display: flex; flex-direction: column; gap: 6px; padding-bottom: 22px; }
+.gc-profil__label { font-size: 14px; font-weight: 700; color: #6E625F; }
+.gc-profil__produit { font-family: var(--police-titre); font-size: 24px; }
+.gc-profil__boisson a { font-weight: 600; }
+.gc-profil__boisson img { width: 80px; height: 150px; object-fit: contain; object-position: bottom; }
+.gc-profil__retour {
+	align-self: flex-start; padding: 12px 24px;
+	border: 2px solid var(--couleur-rouge-profond); border-radius: var(--rayon-pilule);
+	color: var(--couleur-rouge-profond); font-weight: 600; text-decoration: none;
+}
+.gc-profil__retour:hover { background: var(--couleur-rouge-profond); color: var(--couleur-blanc); }
+
+@media (max-width: 900px) {
+	.gc-membres { grid-template-columns: 1fr; }
+	.gc-membre__visuel { height: 320px; }
+	.gc-profil { grid-template-columns: 1fr; gap: 28px; }
+	.gc-profil__visuel { height: 360px; }
+}
+
+/* Correctif IT-11 : introduction et bas des cartes équipe */
+.gc-equipe-intro p { font-size: var(--texte-courant); line-height: 1.45; margin: 0; }
+.gc-membre__pied { flex-direction: column; align-items: flex-start; gap: 10px; }
+.gc-membre__prefere { max-width: 100%; }

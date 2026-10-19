@@ -1,0 +1,57 @@
+{
+    "key": "group_gc_membre",
+    "title": "Profil du membre (IT-11)",
+    "fields": [
+        {
+            "key": "field_gc_poste",
+            "label": "Poste",
+            "name": "gc_poste",
+            "type": "text",
+            "instructions": "Affiché au-dessus du prénom, ex. « Barista ».",
+            "required": 1,
+            "placeholder": "Barista"
+        },
+        {
+            "key": "field_gc_boisson",
+            "label": "Boisson préférée",
+            "name": "gc_boisson",
+            "type": "post_object",
+            "instructions": "Produit mis en avant sur le profil, avec le lien « Commander la même ».",
+            "post_type": [ "product" ],
+            "return_format": "id",
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_gc_degrade",
+            "label": "Couleur du fond",
+            "name": "gc_degrade",
+            "type": "select",
+            "instructions": "Dégradé de la charte derrière la photo.",
+            "choices": {
+                "rouge-or": "Rouge → or",
+                "vert-rose": "Vert → rose",
+                "rouge-lavande": "Rouge → lavande"
+            },
+            "default_value": "rouge-or",
+            "return_format": "value",
+            "ui": 0
+        }
+    ],
+    "location": [
+        [
+            { "param": "post_type", "operator": "==", "value": "membre" }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Poste, boisson préférée et couleur du profil d'un membre de l'équipe.",
+    "show_in_rest": 0,
+    "modified": 1760882400
+}
