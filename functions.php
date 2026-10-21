@@ -28,8 +28,8 @@ add_action( 'wp_enqueue_scripts', function () {
 	);
 
 	wp_enqueue_style( 'gongcha-tokens', get_stylesheet_directory_uri() . '/assets/css/tokens.css', array( 'storefront-style' ), GONGCHA_VERSION );
-	wp_enqueue_style( 'gongcha-theme', get_stylesheet_directory_uri() . '/assets/css/theme.css', array( 'gongcha-tokens', 'gongcha-fonts' ), GONGCHA_VERSION );
-}, 20 );
+	wp_enqueue_style( 'gongcha-theme', get_stylesheet_directory_uri() . '/assets/css/theme.css', array_filter( array( 'gongcha-tokens', 'gongcha-fonts', wp_style_is( 'storefront-woocommerce-style', 'registered' ) ? 'storefront-woocommerce-style' : '' ) ), GONGCHA_VERSION );
+}, 30 );
 
 /**
  * Préconnexion aux serveurs de polices.

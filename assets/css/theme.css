@@ -273,74 +273,6 @@ ul.products li.product-category.gc-cat-the-aux-fruits img { background: var(--de
 .single-product div.product .woocommerce-variation-add-to-cart { display: flex; gap: var(--espace-3); align-items: center; }
 
 
-/* ---------- IT-3 · Sélecteur d'options en pastilles (US-3.2) ---------- */
-.single-product div.product form.variations_form {
-	background: var(--fond-creme);
-	border-radius: var(--rayon-carte);
-	padding: var(--espace-8);
-	margin-bottom: var(--espace-6);
-}
-.gc-options-title {
-	font-family: var(--police-titre);
-	font-size: 30px;
-	margin: 0 0 var(--espace-6);
-}
-.single-product div.product table.variations,
-.single-product div.product table.variations tr,
-.single-product div.product table.variations th,
-.single-product div.product table.variations td {
-	display: block;
-	background: transparent;
-	border: 0;
-	padding: 0;
-}
-.single-product div.product table.variations tr { margin-bottom: var(--espace-6); }
-.single-product div.product table.variations th.label label {
-	font-weight: 700;
-	color: var(--couleur-brun);
-	margin-bottom: var(--espace-2);
-	display: block;
-}
-.gc-select-hidden {
-	position: absolute !important;
-	width: 1px; height: 1px;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-}
-.gc-pills { display: flex; flex-wrap: wrap; gap: var(--espace-2); }
-.gc-pill {
-	background: var(--fond-creme-pastille);
-	color: var(--couleur-brun);
-	border: 0;
-	border-radius: var(--rayon-pilule);
-	padding: 0.65em 1.2em;
-	font-family: var(--police-texte);
-	font-weight: 600;
-	font-size: 15px;
-	cursor: pointer;
-}
-.gc-pill:hover { background: #F1DFC6; color: var(--couleur-brun); }
-.gc-pill:focus-visible { outline: 2px solid var(--couleur-rouge-profond); outline-offset: 2px; }
-.gc-pill.is-selected { background: var(--accent-lavande); }
-.gc-pill.is-disabled {
-	background: var(--fond-gris);
-	color: #6E625F;
-	text-decoration: line-through;
-	cursor: not-allowed;
-}
-.single-product div.product .reset_variations { font-size: 14px; display: inline-block; margin-top: var(--espace-2); }
-
-/* Prix et stock de la variation choisie (US-3.3) */
-.single-product div.product .woocommerce-variation-price .price {
-	font-size: 26px;
-	font-weight: 700;
-	color: var(--couleur-rouge-profond);
-}
-.single-product div.product .stock { font-weight: 600; }
-.single-product div.product .stock.in-stock { color: #2E6B2E; }
-.single-product div.product .stock.out-of-stock { color: #8A001B; }
-.single-product div.product .woocommerce-variation-add-to-cart { display: flex; gap: var(--espace-3); align-items: center; }
-
 /* IT-3 · Correctif : Storefront écrase le padding du formulaire */
 .single-product div.product form.cart.variations_form { padding: var(--espace-8); }
 .gc-pill.is-selected { box-shadow: inset 0 0 0 2px var(--couleur-brun); }
@@ -1070,33 +1002,6 @@ ul.products li.product .onsale,
 .single-product .site-main .upsells ul.products li.product img,
 .single-product .site-main .related ul.products li.product img { padding: 10px 35% 0; }
 
-/* Correctif IT-13 : cartes de suggestions en pleine largeur de colonne, titre à gauche */
-.single-product .site-main .upsells.products,
-.single-product .site-main .related.products { width: 100%; float: none; clear: both; }
-.single-product .site-main .upsells.products > h2,
-.single-product .site-main .related.products > h2 { text-align: left; }
-.single-product .site-main .upsells ul.products[class*="columns-"] li.product,
-.single-product .site-main .related ul.products[class*="columns-"] li.product,
-.woocommerce-cart .site-main .cross-sells ul.products[class*="columns-"] li.product {
-	width: 100%; float: none; margin: 0; clear: none;
-}
-.single-product .site-main .upsells ul.products li.product img,
-.single-product .site-main .related ul.products li.product img { padding: 10px 35% 0; }
-
-/* Correctif IT-13 : cartes de suggestions en pleine largeur de colonne, titre à gauche */
-.single-product .site-main .upsells.products,
-.single-product .site-main .related.products { width: 100%; float: none; clear: both; }
-.single-product .site-main .upsells.products > h2,
-.single-product .site-main .related.products > h2 { text-align: left; }
-.single-product .site-main .upsells ul.products[class*="columns-"] li.product,
-.single-product .site-main .related ul.products[class*="columns-"] li.product,
-.woocommerce-cart .site-main .cross-sells ul.products[class*="columns-"] li.product {
-	width: 100%; float: none; margin: 0; clear: none;
-}
-.single-product .site-main .upsells ul.products li.product img,
-.single-product .site-main .related ul.products li.product img { padding: 10px 35% 0; }
-
-
 /* ---------- IT-14 · Avis clients (US-14.1, maquette D05) ---------- */
 /* Étoiles en rouge Gong cha */
 .star-rating span::before,
@@ -1172,3 +1077,140 @@ p.stars a, p.stars a::before, p.stars a:hover ~ a::before { color: var(--couleur
 	font-weight: 600;
 }
 .gc-seuil--ok { background: #EAF3E6; color: #23471F; }
+
+
+/* ---------- IT-16 · Landing page (US-16.2, maquette D01) ---------- */
+body.gc-landing { overflow-x: clip; }
+.gc-landing .site-content { padding-top: 0; }
+.gc-landing .site-header { margin-bottom: 0; }
+.gc-btn {
+	display: inline-block; padding: 15px 30px;
+	border-radius: var(--rayon-pilule);
+	background: var(--couleur-rouge-profond); color: var(--couleur-blanc);
+	font-weight: 600; text-decoration: none;
+}
+.gc-btn:hover { background: #8A001B; color: var(--couleur-blanc); }
+.gc-btn--creme { background: var(--fond-creme); color: var(--couleur-brun); font-weight: 700; }
+.gc-btn--creme:hover { background: var(--couleur-blanc); color: var(--couleur-brun); }
+.gc-btn--contour { background: transparent; color: var(--couleur-blanc); box-shadow: inset 0 0 0 1px var(--couleur-blanc); }
+.gc-btn--contour:hover { background: rgba(255, 255, 255, 0.12); color: var(--couleur-blanc); }
+
+/* Bandeau rouge pleine largeur */
+.gc-hero {
+	margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+	padding: 48px max(24px, calc(50vw - 600px)) 72px;
+	background: var(--couleur-rouge);
+	display: grid; grid-template-columns: minmax(0, 1fr) 520px; gap: 56px; align-items: center;
+}
+.gc-hero__texte { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.gc-hero__badge { padding: 7px 16px; border: 1px solid var(--accent-beige); border-radius: var(--rayon-pilule); color: var(--accent-beige); font-size: 14px; font-weight: 600; }
+.gc-hero__titre { margin: 0; font-size: var(--texte-h1); line-height: 1.1; color: var(--accent-beige); }
+.gc-hero__accroche p { margin: 0; max-width: 30em; color: var(--couleur-blanc); font-size: var(--texte-courant); font-weight: 300; line-height: 1.45; }
+.gc-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.gc-hero__visuel { height: 340px; border-radius: var(--rayon-carte); overflow: hidden; background: #8A001B; }
+.gc-hero__visuel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.gc-accueil { display: flex; flex-direction: column; gap: 72px; padding: 64px 0 72px; }
+.gc-section { display: flex; flex-direction: column; gap: 24px; }
+.gc-section__entete { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.gc-section__entete h2 { margin: 0; font-size: var(--texte-h2); line-height: 1.1; }
+.gc-section__entete a { font-weight: 600; }
+.gc-section__entete span { font-size: 15px; color: #6E625F; }
+
+/* Catégories */
+.gc-categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.gc-categorie {
+	height: 260px; border-radius: var(--rayon-carte); overflow: hidden;
+	display: flex; justify-content: space-between; align-items: flex-end;
+	padding: 0 22px 0 30px; text-decoration: none; color: var(--couleur-brun);
+	background: var(--degrade-the-au-lait);
+}
+.gc-categorie.gc-cat-the-toute-la-journee { background: var(--degrade-toute-la-journee); }
+.gc-categorie.gc-cat-the-aux-fruits { background: var(--degrade-the-aux-fruits); }
+.gc-categorie:hover { color: var(--couleur-brun); transform: translateY(-2px); }
+.gc-categorie__texte { display: flex; flex-direction: column; gap: 4px; padding-bottom: 28px; }
+.gc-categorie__nom { font-family: var(--police-titre); font-size: 26px; }
+.gc-categorie__nb { font-size: 14px; }
+.gc-categorie img { height: 236px; width: auto; max-width: 45%; object-fit: contain; object-position: bottom; }
+
+/* Nouveautés : badge « Nouveau » */
+.gc-nouveautes ul.products li.product::before {
+	content: "Nouveau"; position: absolute; top: 20px; left: 20px; z-index: 4;
+	padding: 5px 12px; border-radius: var(--rayon-pilule);
+	background: var(--couleur-blanc); color: var(--couleur-rouge-profond);
+	font-size: 13px; font-weight: 700;
+}
+.gc-nouveautes ul.products li.product.sale::before { top: 86px; }
+.gc-nouveautes .woocommerce { margin: 0; }
+
+/* Produit star */
+.gc-star {
+	display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 56px; align-items: center;
+	padding: 40px 48px; border-radius: var(--rayon-carte); background: var(--fond-creme);
+}
+.gc-star__visuel {
+	position: relative; height: 340px; overflow: hidden;
+	display: flex; align-items: flex-end; justify-content: center;
+	border-radius: var(--rayon-carte); background: var(--degrade-the-au-lait);
+}
+.gc-star__visuel.gc-cat-the-toute-la-journee { background: var(--degrade-toute-la-journee); }
+.gc-star__visuel.gc-cat-the-aux-fruits { background: var(--degrade-the-aux-fruits); }
+.gc-star__visuel img { height: 310px; width: auto; object-fit: contain; }
+.gc-star__badge { position: absolute; top: 20px; left: 20px; padding: 6px 14px; border-radius: var(--rayon-pilule); background: var(--couleur-brun); color: var(--fond-creme); font-size: 13px; font-weight: 700; }
+.gc-star__texte { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.gc-star__surtitre { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--couleur-rouge-profond); }
+.gc-star__texte h2 { margin: 0; font-size: var(--texte-h2); line-height: 1.1; }
+.gc-star__description p { margin: 0; font-size: var(--texte-courant); line-height: 1.45; }
+.gc-star__composition { margin: 0; font-size: 15px; color: #6E625F; }
+.gc-star__prix { margin: 0; font-size: 20px; font-weight: 700; color: var(--couleur-brun); }
+
+/* Étapes */
+.gc-etapes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.gc-etape { display: flex; gap: 16px; align-items: flex-start; }
+.gc-etape__num {
+	flex: none; width: 48px; height: 48px; border-radius: var(--rayon-pilule);
+	display: flex; align-items: center; justify-content: center;
+	font-family: var(--police-titre); font-size: 22px; background: var(--accent-lavande);
+}
+.gc-etape:nth-child(2) .gc-etape__num { background: var(--fond-creme-pastille); }
+.gc-etape:nth-child(3) .gc-etape__num { background: var(--accent-or); }
+.gc-etape__texte { display: flex; flex-direction: column; gap: 6px; }
+.gc-etape__texte b { font-size: 18px; }
+.gc-etape__texte span { font-size: 15px; line-height: 1.45; color: #6E625F; }
+
+@media (max-width: 900px) {
+	.gc-hero { grid-template-columns: 1fr; gap: 32px; padding-top: 32px; padding-bottom: 48px; }
+	.gc-hero__visuel { height: 220px; }
+	.gc-hero__titre { font-size: 40px; }
+	.gc-categories, .gc-etapes { grid-template-columns: 1fr; gap: 20px; }
+	.gc-star { grid-template-columns: 1fr; padding: 24px; gap: 24px; }
+	.gc-accueil { gap: 48px; padding-top: 40px; }
+}
+
+/* Correctif IT-16 : « Nouveautés » sur 3 colonnes, visuels de 300 px (maquette D01) */
+.gc-nouveautes ul.products {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 32px;
+	margin: 0;
+}
+.gc-nouveautes ul.products::before,
+.gc-nouveautes ul.products::after { display: none; }
+.gc-nouveautes ul.products li.product {
+	width: auto; float: none; margin: 0; clear: none;
+	display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.gc-nouveautes ul.products li.product img {
+	aspect-ratio: auto;
+	height: 300px;
+	width: 100%;
+	padding: 20px 25% 0;
+	margin: 0;
+	object-fit: contain;
+	object-position: bottom;
+}
+.gc-nouveautes ul.products li.product .woocommerce-loop-product__title { margin: 4px 0 0; }
+@media (max-width: 900px) {
+	.gc-nouveautes ul.products { grid-template-columns: 1fr; gap: 40px; }
+	.gc-nouveautes ul.products li.product img { height: 260px; }
+}

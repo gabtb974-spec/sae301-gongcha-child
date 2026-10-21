@@ -50,29 +50,3 @@ $gongcha_en_stock = function ( $ids ) {
 };
 add_filter( 'woocommerce_product_get_upsell_ids', $gongcha_en_stock );
 add_filter( 'woocommerce_product_get_cross_sell_ids', $gongcha_en_stock );
-
-/* Pas de suggestion d'un produit épuisé (fiche et panier). */
-$gongcha_en_stock = function ( $ids ) {
-	if ( is_admin() ) {
-		return $ids;
-	}
-	return array_values( array_filter( (array) $ids, function ( $id ) {
-		$p = wc_get_product( $id );
-		return $p && $p->is_in_stock();
-	} ) );
-};
-add_filter( 'woocommerce_product_get_upsell_ids', $gongcha_en_stock );
-add_filter( 'woocommerce_product_get_cross_sell_ids', $gongcha_en_stock );
-
-/* Pas de suggestion d'un produit épuisé (fiche et panier). */
-$gongcha_en_stock = function ( $ids ) {
-	if ( is_admin() ) {
-		return $ids;
-	}
-	return array_values( array_filter( (array) $ids, function ( $id ) {
-		$p = wc_get_product( $id );
-		return $p && $p->is_in_stock();
-	} ) );
-};
-add_filter( 'woocommerce_product_get_upsell_ids', $gongcha_en_stock );
-add_filter( 'woocommerce_product_get_cross_sell_ids', $gongcha_en_stock );
