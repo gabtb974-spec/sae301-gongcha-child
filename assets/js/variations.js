@@ -3,6 +3,7 @@
  * Chaque liste déroulante de variation est doublée par des boutons « pastilles ».
  * Un clic choisit la valeur dans la liste et déclenche l'événement que WooCommerce écoute :
  * le prix et le stock de la variation s'affichent alors (US-3.3).
+ * Les options des produits simples (.gc-options-simples) utilisent les mêmes pastilles.
  */
 (function ($) {
 	'use strict';
@@ -48,11 +49,19 @@
 	$(document).on('click', '.gc-pill', function () {
 		var $btn = $(this);
 		var $select = $btn.closest('td.value').find('select');
-		var value = $btn.data('value');
-		$select.val($select.val() === value ? '' : value).trigger('change');
+		var value = String($btn.data('value'));
+		var peutVider = $select.find('option[value=""]').length > 0; // pas de « vide » pour les options simples
+		$select.val($select.val() === value && peutVider ? '' : value).trigger('change');
 	});
 
 	$(function () {
+		$('.gc-options-simples select').each(function () {
+			buildPills($(this));
+		});
+		$(document).on('change', '.gc-options-simples select', function () {
+			buildPills($(this));
+		});
+
 		$('form.variations_form').each(function () {
 			var $form = $(this);
 			refreshAll($form);

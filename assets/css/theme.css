@@ -1214,3 +1214,25 @@ body.gc-landing { overflow-x: clip; }
 	.gc-nouveautes ul.products { grid-template-columns: 1fr; gap: 40px; }
 	.gc-nouveautes ul.products li.product img { height: 260px; }
 }
+
+
+/* ---------- Audit · options des produits simples et badge « Produit star » ---------- */
+.single-product div.product .gc-options-simples {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-carte);
+	padding: var(--espace-8);
+	margin-bottom: var(--espace-6);
+	width: 100%;
+}
+.single-product div.product form.cart:has(.gc-options-simples) { display: flex; flex-wrap: wrap; gap: var(--espace-3); align-items: center; }
+.gc-badge-star {
+	display: inline-block;
+	padding: 6px 14px;
+	border-radius: var(--rayon-pilule);
+	background: var(--couleur-brun);
+	color: var(--fond-creme);
+	font-size: 13px;
+	font-weight: 700;
+}
+ul.products li.product .gc-badge-star { position: absolute; top: 18px; right: 18px; z-index: 3; }
+.single-product div.product .summary .gc-badge-star { margin-bottom: var(--espace-3); }

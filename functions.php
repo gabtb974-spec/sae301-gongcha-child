@@ -2,15 +2,17 @@
 /**
  * Gong cha Click & Collect · thème enfant de Storefront.
  *
- * IT-1 : chargement du thème parent, des polices et des variables de la charte.
- * Les fonctions Click & Collect arriveront itération par itération dans inc/.
+ * Chargement du thème parent, des polices et des styles, puis des fonctionnalités de inc/ (une par fichier).
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GONGCHA_VERSION', wp_get_theme()->get( 'Version' ) );
+/* Version des fichiers CSS/JS = version du thème + date de la dernière modification d'un fichier de assets/.
+   Le navigateur recharge donc les styles dès qu'ils changent (plus besoin de Cmd + Maj + R). */
+$gongcha_assets = glob( get_stylesheet_directory() . '/assets/*/*.*' );
+define( 'GONGCHA_VERSION', wp_get_theme()->get( 'Version' ) . '.' . ( $gongcha_assets ? max( array_map( 'filemtime', $gongcha_assets ) ) : 0 ) );
 
 /**
  * Feuilles de style : parent, polices Google, variables, styles du thème.

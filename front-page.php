@@ -74,16 +74,16 @@ $gc_carte = wc_get_page_permalink( 'shop' );
 	</section>
 
 	<?php
-	/* Produit star : le premier produit « mis en avant » */
-	$gc_star = wc_get_products( array( 'featured' => true, 'limit' => 1, 'status' => 'publish' ) );
+	/* Produit star (itération W) : le produit le plus vendu, calculé automatiquement (inc/produit-star.php). */
+	$gc_star_id = function_exists( 'gongcha_produit_star' ) ? gongcha_produit_star() : 0;
+	$gc_star    = $gc_star_id ? wc_get_product( $gc_star_id ) : null;
 	if ( $gc_star ) :
-		$gc_star = $gc_star[0];
 		$gc_cats_star = wc_get_product_term_ids( $gc_star->get_id(), 'product_cat' );
 		$gc_slug_star = $gc_cats_star ? get_term( $gc_cats_star[0] )->slug : '';
 		?>
 		<section class="gc-star" aria-labelledby="gc-titre-star">
 			<a class="gc-star__visuel gc-cat-<?php echo esc_attr( $gc_slug_star ); ?>" href="<?php echo esc_url( $gc_star->get_permalink() ); ?>">
-				<span class="gc-star__badge"><?php esc_html_e( 'Le plus commandé', 'gongcha-child' ); ?></span>
+				<span class="gc-star__badge"><?php echo esc_html( gongcha_star_par_ventes() ? __( 'Le plus commandé', 'gongcha-child' ) : __( 'Coup de cœur', 'gongcha-child' ) ); ?></span>
 				<?php echo $gc_star->get_image( 'woocommerce_single', array( 'alt' => '' ) ); ?>
 			</a>
 			<div class="gc-star__texte">
