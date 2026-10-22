@@ -1236,3 +1236,107 @@ body.gc-landing { overflow-x: clip; }
 }
 ul.products li.product .gc-badge-star { position: absolute; top: 18px; right: 18px; z-index: 3; }
 .single-product div.product .summary .gc-badge-star { margin-bottom: var(--espace-3); }
+
+
+/* ---------- IT-18 · Filtres de la boutique (US-18.2, maquettes D02, M03) ---------- */
+/* Cartes crème de la barre latérale */
+.widget-area .widget.woocommerce,
+.widget-area .widget_layered_nav_filters,
+.widget-area .widget_price_filter,
+.widget-area .widget_layered_nav {
+	background: var(--fond-creme);
+	border-radius: var(--rayon-lg);
+	padding: 22px;
+	margin-bottom: 22px;
+	font-size: 15px;
+}
+.widget-area .widget .widget-title,
+.widget-area .widget .widgettitle {
+	font-family: var(--police-titre);
+	font-size: 22px;
+	font-weight: 400;
+	border: 0;
+	padding: 0;
+	margin: 0 0 14px;
+	color: var(--couleur-brun);
+}
+
+/* Prix : curseur rouge sur rail beige */
+.widget_price_filter .price_slider { margin-bottom: 14px; }
+.widget_price_filter .price_slider_wrapper .ui-widget-content { height: 6px; border-radius: var(--rayon-pilule); background: #E8DCC8; border: 0; }
+.widget_price_filter .ui-slider .ui-slider-range { background: var(--couleur-rouge-profond); border-radius: var(--rayon-pilule); }
+.widget_price_filter .ui-slider .ui-slider-handle {
+	top: -6px; width: 18px; height: 18px; margin-left: -9px;
+	background: var(--couleur-blanc); border: 2px solid var(--couleur-rouge-profond);
+	border-radius: var(--rayon-pilule); box-shadow: none; cursor: grab;
+}
+.widget_price_filter .price_slider_amount { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; text-align: left; }
+.widget_price_filter .price_slider_amount .button { order: 2; height: 40px; padding: 0 18px; font-size: 15px; float: none; }
+.widget_price_filter .price_slider_amount .price_label { order: 1; font-size: 15px; }
+
+/* Taille : cases à cocher (liens « ou ») */
+.widget_layered_nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.widget_layered_nav ul li { margin: 0; padding: 0; }
+.widget_layered_nav ul li::before { display: none; }
+.widget_layered_nav ul li a {
+	display: inline-flex; align-items: center; gap: 10px;
+	color: var(--couleur-brun); text-decoration: none;
+}
+.widget_layered_nav ul li a::before {
+	content: ""; flex: none; width: 18px; height: 18px;
+	border: 2px solid #D9CFC2; border-radius: 4px; background: var(--couleur-blanc);
+	box-sizing: border-box;
+}
+.widget_layered_nav ul li.chosen a::before {
+	border-color: var(--couleur-rouge-profond);
+	background: var(--couleur-rouge-profond) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+.widget_layered_nav ul li .count { color: #6E625F; }
+
+/* Filtres actifs : pastilles « × » */
+.widget_layered_nav_filters ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.widget_layered_nav_filters ul li { margin: 0; padding: 0; }
+.widget_layered_nav_filters ul li::before { display: none; }
+.widget_layered_nav_filters ul li a {
+	display: inline-block; padding: 6px 12px;
+	border-radius: var(--rayon-pilule); background: var(--accent-lavande);
+	color: var(--couleur-brun); font-weight: 600; text-decoration: none;
+}
+.widget_layered_nav_filters ul li a::before { content: "× "; }
+.gc-filtres-reset a { font-weight: 600; }
+
+/* Mobile : bouton « Filtrer » et volet (maquette M03) */
+.gc-filtres-ouvrir, .gc-filtres-fermer { display: none; }
+@media (max-width: 767px) {
+	.gc-filtres-ouvrir {
+		display: inline-flex; align-items: center; gap: 8px;
+		margin: 0 0 var(--espace-4);
+		background: var(--couleur-brun); color: var(--couleur-blanc);
+	}
+	body.gc-filtres-ouverts { overflow: hidden; }
+	.woocommerce-shop #secondary,
+	.tax-product_cat #secondary,
+	.tax-collection #secondary { display: none; }
+	body.gc-filtres-ouverts #secondary {
+		display: block;
+		position: fixed; inset: 0; z-index: 9999;
+		width: 100%; margin: 0;
+		overflow-y: auto;
+		padding: var(--espace-6) var(--espace-4) var(--espace-16);
+		background: var(--couleur-blanc);
+	}
+	body.gc-filtres-ouverts #secondary .gc-filtres-fermer {
+		display: block; position: sticky; bottom: 0; z-index: 2;
+		width: 100%; margin-top: var(--espace-4);
+		order: 99;
+	}
+	body.gc-filtres-ouverts #secondary { display: flex; flex-direction: column; }
+}
+
+/* Liens des filtres et des cartes sans soulignement (Storefront souligne les liens des widgets) */
+.widget-area .widget.widget_layered_nav ul li a,
+.widget-area .widget.widget_layered_nav_filters ul li a,
+.widget-area nav.gc-carte-termes ul li a { text-decoration: none; font-size: 15px; }
+.widget-area .widget.widget_layered_nav ul li a:hover,
+.widget-area nav.gc-carte-termes ul li a:hover { color: var(--couleur-rouge-profond); }
+.widget-area nav.gc-carte-termes ul li a span { color: #6E625F; }

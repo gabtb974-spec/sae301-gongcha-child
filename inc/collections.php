@@ -85,7 +85,7 @@ function gongcha_carte_termes( $taxonomie, $titre ) {
 	echo '</ul></nav>';
 }
 
-add_action( 'dynamic_sidebar_before', function ( $index ) {
+add_action( 'dynamic_sidebar_after', function ( $index ) {
 	if ( 'sidebar-1' !== $index || ! function_exists( 'is_shop' ) || ! ( is_shop() || is_product_taxonomy() ) ) {
 		return;
 	}
