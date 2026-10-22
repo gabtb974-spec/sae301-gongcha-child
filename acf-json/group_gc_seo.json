@@ -1,0 +1,39 @@
+{
+    "key": "group_gc_seo",
+    "title": "Référencement (IT-21)",
+    "fields": [
+        {
+            "key": "field_gc_seo_titre",
+            "label": "Balise Title",
+            "name": "gc_seo_titre",
+            "type": "text",
+            "instructions": "60 caractères maximum. Vide : « Nom | Gong cha Click & Collect ».",
+            "maxlength": 60
+        },
+        {
+            "key": "field_gc_seo_description",
+            "label": "Meta description",
+            "name": "gc_seo_description",
+            "type": "textarea",
+            "instructions": "155 caractères maximum, affichée sous le titre dans Google et lors d'un partage. Vide : description courte.",
+            "maxlength": 155,
+            "rows": 3,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [ { "param": "post_type", "operator": "==", "value": "product" } ],
+        [ { "param": "taxonomy", "operator": "==", "value": "product_cat" } ],
+        [ { "param": "taxonomy", "operator": "==", "value": "collection" } ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Balise Title et meta description des produits, catégories et collections.",
+    "show_in_rest": 0,
+    "modified": 1761141600
+}
