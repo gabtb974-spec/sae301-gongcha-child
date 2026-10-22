@@ -1361,3 +1361,16 @@ body.woocommerce-checkout form.checkout tr.gc-creneau select {
 	border-radius: var(--rayon-pilule); background: var(--accent-lavande);
 	font-weight: 600;
 }
+
+
+/* ---------- IT-22 · Liens légaux et pages légales ---------- */
+.gc-liens-legaux { clear: both; padding: var(--espace-4) 0 0; }
+.gc-liens-legaux ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--espace-2) var(--espace-6); }
+.gc-liens-legaux li { margin: 0; }
+.gc-liens-legaux a { color: var(--fond-creme); font-size: 14px; }
+.gc-liens-legaux a:hover { color: var(--accent-beige); }
+.page .entry-content .gc-legal { max-width: 46em; font-size: 16px; line-height: 1.6; }
+.page .entry-content .gc-legal h2 { font-size: 26px; margin: var(--espace-8) 0 var(--espace-2); }
+.page .entry-content .gc-legal .gc-legal__maj { color: #6E625F; font-size: 14px; }
+.page .entry-content .gc-legal .gc-legal__note { background: var(--fond-creme); border-radius: var(--rayon-lg); padding: var(--espace-4) var(--espace-6); }
+.woocommerce-terms-and-conditions-wrapper .woocommerce-form__label-for-checkbox { display: inline-flex; gap: 10px; align-items: flex-start; font-weight: 400; }
