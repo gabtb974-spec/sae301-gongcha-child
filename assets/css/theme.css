@@ -1340,3 +1340,7 @@ ul.products li.product .gc-badge-star { position: absolute; top: 18px; right: 18
 .widget-area .widget.widget_layered_nav ul li a:hover,
 .widget-area nav.gc-carte-termes ul li a:hover { color: var(--couleur-rouge-profond); }
 .widget-area nav.gc-carte-termes ul li a span { color: #6E625F; }
+
+
+/* ---------- IT-19 · Poids de la commande (US-19.3) ---------- */
+tr.gc-poids small { display: block; color: #6E625F; font-size: 13px; }
