@@ -14,34 +14,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 $gongcha_assets = glob( get_stylesheet_directory() . '/assets/*/*.*' );
 define( 'GONGCHA_VERSION', wp_get_theme()->get( 'Version' ) . '.' . ( $gongcha_assets ? max( array_map( 'filemtime', $gongcha_assets ) ) : 0 ) );
 
+/* Itération Z : traductions du thème (languages/gongcha-child.pot, modifiables avec Loco Translate). */
+add_action( 'after_setup_theme', function () {
+	load_child_theme_textdomain( 'gongcha-child', get_stylesheet_directory() . '/languages' );
+} );
+
 /**
- * Feuilles de style : parent, polices Google, variables, styles du thème.
+ * Feuilles de style : parent, polices, variables, styles du thème.
+ * Itération Y : polices hébergées sur le site (assets/css/polices.css) plutôt que chez Google :
+ * pas de requête vers un serveur tiers qui bloque l'affichage, ni de transfert de l'adresse IP du visiteur.
  */
 add_action( 'wp_enqueue_scripts', function () {
 	$parent = wp_get_theme( 'storefront' );
 
 	wp_enqueue_style( 'storefront-style', get_template_directory_uri() . '/style.css', array(), $parent->get( 'Version' ) );
 
+	$polices_locales = file_exists( get_stylesheet_directory() . '/assets/css/polices.css' );
 	wp_enqueue_style(
 		'gongcha-fonts',
-		'https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&family=Vidaloka&display=swap',
+		$polices_locales
+			? get_stylesheet_directory_uri() . '/assets/css/polices.css'
+			: 'https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;600;700&family=Vidaloka&display=swap',
 		array(),
-		null
+		$polices_locales ? GONGCHA_VERSION : null
 	);
 
 	wp_enqueue_style( 'gongcha-tokens', get_stylesheet_directory_uri() . '/assets/css/tokens.css', array( 'storefront-style' ), GONGCHA_VERSION );
 	wp_enqueue_style( 'gongcha-theme', get_stylesheet_directory_uri() . '/assets/css/theme.css', array_filter( array( 'gongcha-tokens', 'gongcha-fonts', wp_style_is( 'storefront-woocommerce-style', 'registered' ) ? 'storefront-woocommerce-style' : '' ) ), GONGCHA_VERSION );
 }, 30 );
-
-/**
- * Préconnexion aux serveurs de polices.
- */
-add_filter( 'wp_resource_hints', function ( $urls, $relation ) {
-	if ( 'preconnect' === $relation ) {
-		$urls[] = array( 'href' => 'https://fonts.gstatic.com', 'crossorigin' );
-	}
-	return $urls;
-}, 10, 2 );
 
 /**
  * Storefront n'a plus besoin de ses propres polices (Source Sans Pro) : on les retire.
@@ -51,7 +51,7 @@ add_action( 'wp_enqueue_scripts', function () {
 }, 30 );
 
 /**
- * Fichiers des itérations suivantes (créés au fur et à mesure).
+ * Fichiers des itérations (un par fonctionnalité).
  */
 foreach ( glob( get_stylesheet_directory() . '/inc/*.php' ) as $gongcha_file ) {
 	require_once $gongcha_file;

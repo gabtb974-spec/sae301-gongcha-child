@@ -3,16 +3,22 @@
  * Itération W · Produit star (US-W.1 à US-W.3).
  * Le produit le plus vendu (champ total_sales tenu à jour par WooCommerce) est identifié automatiquement.
  * Tant qu'aucune vente n'existe, on reprend le produit « mis en avant » (étoile dans Produits).
+ * Itération Y : résultat mis en cache 12 h (vidé par inc/performance.php à chaque commande ou modification de produit).
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/* US-W.1 : identifiant du produit star (calculé une fois par page). */
+/* US-W.1 : identifiant du produit star. */
 function gongcha_produit_star() {
 	static $id = null;
 	if ( null !== $id ) {
+		return $id;
+	}
+	$cache = get_transient( 'gongcha_produit_star' );
+	if ( false !== $cache ) {
+		$id = (int) $cache;
 		return $id;
 	}
 	$plus_vendu = get_posts( array(
@@ -31,6 +37,7 @@ function gongcha_produit_star() {
 		$mis_en_avant = wc_get_featured_product_ids();
 		$id           = $mis_en_avant ? (int) reset( $mis_en_avant ) : 0;
 	}
+	set_transient( 'gongcha_produit_star', $id, 12 * HOUR_IN_SECONDS );
 	return $id;
 }
 
