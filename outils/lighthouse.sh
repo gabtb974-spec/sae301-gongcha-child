@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Itération Y · Audit Lighthouse de la fiche du produit star (mobile + ordinateur), rapports dans docs/lighthouse/.
-# Usage : bash outils/lighthouse.sh
-# Avec Node.js : Lighthouse en local. Sans Node.js : Lighthouse dans un conteneur Docker (Docker est déjà là pour DDEV).
+# Itération Y · Audit Lighthouse de la fiche du produit star, rapports dans docs/lighthouse/.
+# Mobile : 3 passages, on garde le rapport médian (méthode recommandée par Lighthouse, les mesures varient d'un passage à l'autre).
+# Ordinateur : 1 passage.
+# Usage : bash outils/lighthouse.sh   (Node.js local si présent, sinon conteneur Docker, déjà installé pour DDEV)
 set -euo pipefail
 THEME="$(cd "$(dirname "$0")/.." && pwd)"
 SITE="$(cd "$THEME/../../.." && pwd)"
@@ -10,20 +11,31 @@ OUT="$THEME/docs/lighthouse"
 mkdir -p "$OUT"
 echo "  Page auditée : $URL"
 
-SCORES='
-	const r = require(process.argv[1]); const c = r.categories;
-	const s = k => Math.round(c[k].score * 100);
-	const ligne = ["performance","accessibility","best-practices","seo"].map(k => `${c[k].title} ${s(k)}`).join(" · ");
-	const bas = Object.keys(c).filter(k => s(k) < 80);
-	console.log(`  ${process.argv[2].padEnd(8)} ${ligne}${bas.length ? "   ⚠ sous 80 : " + bas.join(", ") : "   ✓"}`);'
-FLAGS='--quiet --only-categories=performance,accessibility,best-practices,seo --output=html --output=json'
+# Script exécuté avec Lighthouse disponible : $1 = commande lighthouse, $2 = dossier de sortie, $3 = drapeaux Chrome
+AUDIT='
+set -e
+LH="$1"; O="$2"; CF="$3"
+F="--quiet --only-categories=performance,accessibility,best-practices,seo --output=html --output=json"
+for i in 1 2 3; do $LH "$URL" $F --chrome-flags="$CF" --output-path="$O/.m$i" >/dev/null 2>&1 || exit 1; done
+$LH "$URL" $F --preset=desktop --chrome-flags="$CF" --output-path="$O/produit-desktop" >/dev/null 2>&1 || exit 1
+node -e "
+const fs=require(\"fs\"),o=process.argv[1];
+const runs=[1,2,3].map(i=>({i,r:JSON.parse(fs.readFileSync(o+\"/.m\"+i+\".report.json\"))}));
+runs.sort((a,b)=>a.r.categories.performance.score-b.r.categories.performance.score);
+const med=runs[1].i;
+for(const ext of [\"json\",\"html\"]) fs.renameSync(o+\"/.m\"+med+\".report.\"+ext,o+\"/produit-mobile.report.\"+ext);
+for(const f of fs.readdirSync(o)) if(f.startsWith(\".m\")) fs.unlinkSync(o+\"/\"+f);
+const ligne=(n,r)=>{const c=r.categories,s=k=>Math.round(c[k].score*100);
+ const b=Object.keys(c).filter(k=>s(k)<80);
+ console.log(\"  \"+n.padEnd(9)+[\"performance\",\"accessibility\",\"best-practices\",\"seo\"].map(k=>c[k].title+\" \"+s(k)).join(\" · \")+(b.length?\"   ⚠ sous 80 : \"+b.join(\", \"):\"   ✓\"));};
+console.log(\"  Mobile, performance des 3 passages : \"+runs.map(x=>Math.round(x.r.categories.performance.score*100)).join(\" / \")+\" → médiane retenue\");
+ligne(\"mobile\",runs[1].r);
+ligne(\"desktop\",JSON.parse(fs.readFileSync(o+\"/produit-desktop.report.json\")));
+" "$O"
+'
 
 if command -v npx >/dev/null; then
-	for mode in mobile desktop; do
-		extra=""; [ "$mode" = desktop ] && extra="--preset=desktop"
-		npx -y lighthouse@12 "$URL" $FLAGS $extra --chrome-flags="--headless=new --ignore-certificate-errors" --output-path="$OUT/produit-$mode"
-		node -e "$SCORES" "$OUT/produit-$mode.report.json" "$mode"
-	done
+	URL="$URL" bash -c "$AUDIT" _ "npx -y lighthouse@12" "$OUT" "--headless=new --ignore-certificate-errors"
 	exit 0
 fi
 
@@ -39,10 +51,6 @@ DOCKERFILE
 fi
 HOTE="$(echo "$URL" | sed -E 's#^https?://([^/:]+).*#\1#')"
 ROUTEUR="$(docker inspect -f '{{(index .NetworkSettings.Networks "ddev_default").IPAddress}}' ddev-router)"
-docker run --rm --network ddev_default --add-host "$HOTE:$ROUTEUR" -v "$OUT:/out" -e URL="$URL" -e FLAGS="$FLAGS" -e SCORES="$SCORES" \
-	gongcha-lighthouse sh -c '
-	for mode in mobile desktop; do
-		extra=""; [ "$mode" = desktop ] && extra="--preset=desktop"
-		lighthouse "$URL" $FLAGS $extra --chrome-flags="--headless=new --no-sandbox --disable-dev-shm-usage --ignore-certificate-errors" --output-path=/out/produit-$mode || exit 1
-		node -e "$SCORES" /out/produit-$mode.report.json $mode
-	done'
+echo "  4 passages (3 mobile + 1 ordinateur), environ 2 min…"
+docker run --rm --network ddev_default --add-host "$HOTE:$ROUTEUR" -v "$OUT:/out" -e URL="$URL" -e AUDIT="$AUDIT" \
+	gongcha-lighthouse bash -c 'bash -c "$AUDIT" _ lighthouse /out "--headless=new --no-sandbox --disable-dev-shm-usage --ignore-certificate-errors"'
