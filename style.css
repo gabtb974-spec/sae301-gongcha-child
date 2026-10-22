@@ -4,9 +4,10 @@ Theme URI:    https://github.com/gabtb974-spec/sae301-gongcha-child
 Description:  Thème enfant de Storefront pour le Click & Collect Gong cha (SAé 3.01, projet étudiant, site non officiel).
 Author:       Gabriel Trottmann-Barale
 Template:     storefront
-Version:      1.17.0
+Version:      1.18.0
 Requires PHP: 8.0
 Text Domain:  gongcha-child
+Domain Path:  /languages
 License:      GPL-2.0-or-later
 */
 

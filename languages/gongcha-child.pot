@@ -1,0 +1,670 @@
+# Copyright (C) 2026 Gabriel Trottmann-Barale
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gong cha Click & Collect 1.17.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/gongcha-child\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-22T15:51:12+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: gongcha-child\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Gong cha Click & Collect"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/gabtb974-spec/sae301-gongcha-child"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Thème enfant de Storefront pour le Click & Collect Gong cha (SAé 3.01, projet étudiant, site non officiel)."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Gabriel Trottmann-Barale"
+msgstr ""
+
+#: archive-membre.php:14
+msgid "L’équipe"
+msgstr ""
+
+#: archive-membre.php:35
+#, php-format
+msgid "Préféré : %s"
+msgstr ""
+
+#: archive-membre.php:37
+#: inc/equipe.php:23
+msgid "Voir le profil"
+msgstr ""
+
+#: archive-membre.php:44
+msgid "L’équipe se présente bientôt."
+msgstr ""
+
+#: front-page.php:20
+msgid "Nouveau · Click & Collect"
+msgstr ""
+
+#: front-page.php:21
+msgid "L’art du Bubble tea, prêt à votre heure."
+msgstr ""
+
+#: front-page.php:30
+msgid "Commander en ligne"
+msgstr ""
+
+#: front-page.php:31
+msgid "Voir la carte"
+msgstr ""
+
+#: front-page.php:35
+msgid "Gobelets Gong cha garnis de perles et de mousse de lait"
+msgstr ""
+
+#: front-page.php:44
+msgid "Nos catégories"
+msgstr ""
+
+#: front-page.php:45
+msgid "Toute la carte"
+msgstr ""
+
+#: front-page.php:59
+#, php-format
+msgid "%d thé"
+msgid_plural "%d thés"
+msgstr[0] ""
+msgstr[1] ""
+
+#: front-page.php:70
+msgid "Nouveautés"
+msgstr ""
+
+#: front-page.php:71
+msgid "Les 3 derniers thés ajoutés à la carte"
+msgstr ""
+
+#: front-page.php:86
+msgid "Le plus commandé"
+msgstr ""
+
+#: front-page.php:86
+msgid "Coup de cœur"
+msgstr ""
+
+#: front-page.php:90
+msgid "Produit star"
+msgstr ""
+
+#: front-page.php:98
+msgid "Faites-le vôtre"
+msgstr ""
+
+#: front-page.php:104
+msgid "Comment ça marche"
+msgstr ""
+
+#: front-page.php:107
+msgid "Composez"
+msgstr ""
+
+#: front-page.php:107
+msgid "Base de thé, glace, douceur et garnitures."
+msgstr ""
+
+#: front-page.php:108
+msgid "Choisissez le retrait"
+msgstr ""
+
+#: front-page.php:108
+msgid "Retrait gratuit en boutique, ou livraison."
+msgstr ""
+
+#: front-page.php:109
+msgid "Retirez en boutique"
+msgstr ""
+
+#: front-page.php:109
+msgid "Paiement au retrait ou par virement."
+msgstr ""
+
+#: inc/anti-spam.php:27
+msgid "Ne remplissez pas ce champ"
+msgstr ""
+
+#: inc/anti-spam.php:66
+msgid "Le formulaire a été envoyé trop vite ou a expiré : vérifiez vos informations puis renvoyez-le."
+msgstr ""
+
+#: inc/anti-spam.php:67
+msgid "Votre envoi n’a pas pu être vérifié. Rechargez la page puis réessayez."
+msgstr ""
+
+#: inc/anti-spam.php:106
+msgid "Avis non envoyé"
+msgstr ""
+
+#: inc/anti-spam.php:113
+msgid "Anti-spam des formulaires"
+msgstr ""
+
+#: inc/anti-spam.php:118
+msgid "envois automatisés bloqués (inscription, avis)."
+msgstr ""
+
+#: inc/anti-spam.php:119
+msgid "Champ piège rempli"
+msgstr ""
+
+#: inc/anti-spam.php:120
+msgid "Jeton absent ou faux"
+msgstr ""
+
+#: inc/anti-spam.php:121
+msgid "Envoi trop rapide"
+msgstr ""
+
+#: inc/anti-spam.php:122
+msgid "Aucun blocage pour l’instant."
+msgstr ""
+
+#: inc/anti-spam.php:122
+#, php-format
+msgid "Dernier blocage : %s"
+msgstr ""
+
+#: inc/avis.php:31
+msgid "Seuls les clients ayant acheté ce produit peuvent laisser un avis."
+msgstr ""
+
+#: inc/avis.php:32
+msgid "Soumettre"
+msgstr ""
+
+#: inc/champs-produit.php:42
+msgid "Composition"
+msgstr ""
+
+#: inc/champs-produit.php:46
+msgid "Allergènes"
+msgstr ""
+
+#: inc/champs-produit.php:47
+msgid "aucun allergène majeur"
+msgstr ""
+
+#: inc/champs-produit.php:50
+msgid "Valeurs nutritives"
+msgstr ""
+
+#. translators: %s: contenance en ml
+#: inc/champs-produit.php:56
+#, php-format
+msgid "pour %s ml"
+msgstr ""
+
+#: inc/champs-produit.php:65
+msgid "Valeurs indicatives, taille Regular, douceur standard."
+msgstr ""
+
+#: inc/classes/class-gc-email-pret-retrait.php:16
+msgid "Commande prête à retirer"
+msgstr ""
+
+#: inc/classes/class-gc-email-pret-retrait.php:17
+msgid "Envoyé au client quand sa commande passe à l’état « Prête à retirer »."
+msgstr ""
+
+#: inc/classes/class-gc-email-pret-retrait.php:29
+msgid "Votre commande n° {order_number} est prête à retirer"
+msgstr ""
+
+#: inc/classes/class-gc-email-pret-retrait.php:33
+msgid "Votre commande est prête"
+msgstr ""
+
+#: inc/classes/class-gc-email-pret-retrait.php:37
+msgid "À tout de suite au comptoir !"
+msgstr ""
+
+#: inc/collections.php:15
+#: inc/collections.php:17
+#: inc/collections.php:92
+msgid "Collections"
+msgstr ""
+
+#: inc/collections.php:16
+#: inc/collections.php:50
+msgid "Collection"
+msgstr ""
+
+#: inc/collections.php:18
+msgid "Toutes les collections"
+msgstr ""
+
+#: inc/collections.php:19
+msgid "Modifier la collection"
+msgstr ""
+
+#: inc/collections.php:20
+msgid "Voir la collection"
+msgstr ""
+
+#: inc/collections.php:21
+msgid "Ajouter une collection"
+msgstr ""
+
+#: inc/collections.php:22
+msgid "Nom de la collection"
+msgstr ""
+
+#: inc/collections.php:23
+msgid "Rechercher une collection"
+msgstr ""
+
+#: inc/collections.php:24
+msgid "Aucune collection"
+msgstr ""
+
+#: inc/collections.php:25
+msgid "← Retour aux collections"
+msgstr ""
+
+#: inc/collections.php:93
+msgid "Catégories"
+msgstr ""
+
+#: inc/collections.php:98
+msgid "Collection :"
+msgstr ""
+
+#: inc/commandes.php:18
+#: inc/commandes.php:33
+msgctxt "Order status"
+msgid "Prête à retirer"
+msgstr ""
+
+#. translators: %s: nombre de commandes
+#: inc/commandes.php:24
+#, php-format
+msgid "Prête à retirer <span class=\"count\">(%s)</span>"
+msgid_plural "Prêtes à retirer <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/commandes.php:42
+msgid "Changer l’état en Prête à retirer"
+msgstr ""
+
+#: inc/compte.php:21
+msgid "virement"
+msgstr ""
+
+#: inc/compte.php:33
+msgid "S'enregistrer"
+msgstr ""
+
+#: inc/creneaux.php:65
+msgid "Aujourd’hui, "
+msgstr ""
+
+#: inc/creneaux.php:67
+msgid "Demain, "
+msgstr ""
+
+#: inc/creneaux.php:95
+msgid "Créneaux de retrait et de livraison"
+msgstr ""
+
+#: inc/creneaux.php:96
+msgid "Jours et créneaux proposés au client pendant la validation de commande."
+msgstr ""
+
+#: inc/creneaux.php:97
+msgid "Ouverture"
+msgstr ""
+
+#: inc/creneaux.php:98
+msgid "Fermeture"
+msgstr ""
+
+#: inc/creneaux.php:99
+msgid "Durée d’un créneau de retrait (min)"
+msgstr ""
+
+#: inc/creneaux.php:100
+msgid "Délai minimum avant un retrait (min)"
+msgstr ""
+
+#: inc/creneaux.php:100
+msgid "Temps de préparation."
+msgstr ""
+
+#: inc/creneaux.php:101
+msgid "Délai minimum avant une livraison (min)"
+msgstr ""
+
+#: inc/creneaux.php:102
+msgid "Nombre de jours proposés"
+msgstr ""
+
+#: inc/creneaux.php:114
+msgid "Jour et créneau de retrait"
+msgstr ""
+
+#: inc/creneaux.php:114
+msgid "Jour et créneau de livraison"
+msgstr ""
+
+#: inc/creneaux.php:117
+msgid "Aucun créneau disponible pour le moment."
+msgstr ""
+
+#: inc/creneaux.php:127
+msgid "Jour"
+msgstr ""
+
+#: inc/creneaux.php:131
+msgid "Créneau"
+msgstr ""
+
+#: inc/creneaux.php:168
+msgid "Choisissez un jour et un créneau de retrait disponibles."
+msgstr ""
+
+#: inc/creneaux.php:168
+msgid "Choisissez un jour et un créneau de livraison disponibles."
+msgstr ""
+
+#: inc/creneaux.php:198
+msgid "Créneau de retrait"
+msgstr ""
+
+#: inc/creneaux.php:198
+msgid "Créneau de livraison"
+msgstr ""
+
+#: inc/emails.php:54
+#: inc/emails.php:58
+#: inc/retrait.php:31
+#: inc/retrait.php:60
+msgid "Instructions pour le retrait"
+msgstr ""
+
+#: inc/equipe.php:16
+#: inc/equipe.php:18
+msgid "Équipe"
+msgstr ""
+
+#: inc/equipe.php:17
+msgid "Membre"
+msgstr ""
+
+#: inc/equipe.php:19
+msgid "Tous les membres"
+msgstr ""
+
+#: inc/equipe.php:20
+msgid "Ajouter un membre"
+msgstr ""
+
+#: inc/equipe.php:21
+msgid "Ajouter un membre de l’équipe"
+msgstr ""
+
+#: inc/equipe.php:22
+msgid "Modifier le membre"
+msgstr ""
+
+#: inc/equipe.php:24
+msgid "Rechercher un membre"
+msgstr ""
+
+#: inc/equipe.php:25
+msgid "Aucun membre"
+msgstr ""
+
+#: inc/equipe.php:26
+#: inc/equipe.php:49
+msgid "Photo"
+msgstr ""
+
+#: inc/equipe.php:27
+msgid "Choisir la photo"
+msgstr ""
+
+#: inc/equipe.php:29
+msgid "Ceux qui infusent, secouent et montent la mousse de votre thé, chaque jour en boutique."
+msgstr ""
+
+#: inc/equipe.php:42
+#: inc/equipe.php:50
+msgid "Prénom"
+msgstr ""
+
+#: inc/equipe.php:51
+msgid "Poste"
+msgstr ""
+
+#: inc/equipe.php:52
+msgid "Ordre"
+msgstr ""
+
+#: inc/factures.php:17
+#, php-format
+msgid "Commande à retirer en boutique%s."
+msgstr ""
+
+#: inc/factures.php:23
+msgid "Facture PDF"
+msgstr ""
+
+#: inc/filtres.php:29
+msgid "Filtrer"
+msgstr ""
+
+#: inc/filtres.php:33
+msgid "Voir les résultats"
+msgstr ""
+
+#: inc/filtres.php:44
+msgid "Réinitialiser les filtres"
+msgstr ""
+
+#: inc/frais-preparation.php:33
+msgid "Frais de préparation"
+msgstr ""
+
+#: inc/frais-preparation.php:35
+msgid "Frais fixes ajoutés automatiquement quand le panier est inférieur au seuil (codes promo déduits)."
+msgstr ""
+
+#: inc/frais-preparation.php:39
+msgid "Activer"
+msgstr ""
+
+#: inc/frais-preparation.php:40
+msgid "Appliquer des frais de préparation aux petits paniers"
+msgstr ""
+
+#: inc/frais-preparation.php:46
+msgid "Libellé"
+msgstr ""
+
+#: inc/frais-preparation.php:52
+msgid "Montant des frais (€)"
+msgstr ""
+
+#: inc/frais-preparation.php:59
+msgid "Seuil (€)"
+msgstr ""
+
+#: inc/frais-preparation.php:60
+msgid "Pas de frais à partir de ce montant."
+msgstr ""
+
+#. translators: 1: montant manquant, 2: libellé des frais
+#: inc/frais-preparation.php:94
+#, php-format
+msgid "Plus que %1$s pour ne plus payer les %2$s."
+msgstr ""
+
+#: inc/frais-preparation.php:97
+#, php-format
+msgid "Pas de %s sur ce panier."
+msgstr ""
+
+#: inc/legal.php:18
+msgid "Informations légales"
+msgstr ""
+
+#: inc/legal.php:30
+msgid "J’ai lu et j’accepte les [terms] de Gong cha Click & Collect"
+msgstr ""
+
+#: inc/legal.php:37
+msgid "Veuillez lire et accepter les conditions générales de vente pour valider votre commande."
+msgstr ""
+
+#: inc/livraison-poids.php:58
+msgid "Tarifs selon le poids"
+msgstr ""
+
+#: inc/livraison-poids.php:59
+msgid "Supplément ajouté au tarif de chaque livraison (pas au retrait en boutique) selon le poids total du panier."
+msgstr ""
+
+#: inc/livraison-poids.php:60
+msgid "Tranche 1 : jusqu’à (kg)"
+msgstr ""
+
+#: inc/livraison-poids.php:61
+msgid "Tranche 1 : supplément (€)"
+msgstr ""
+
+#: inc/livraison-poids.php:62
+msgid "Tranche 2 : jusqu’à (kg)"
+msgstr ""
+
+#: inc/livraison-poids.php:63
+msgid "Tranche 2 : supplément (€)"
+msgstr ""
+
+#: inc/livraison-poids.php:64
+msgid "Tranche 3 : au-delà, supplément (€)"
+msgstr ""
+
+#: inc/livraison-poids.php:78
+msgid "Poids"
+msgstr ""
+
+#: inc/livraison-poids.php:101
+msgid "Poids de la commande"
+msgstr ""
+
+#: inc/livraison-poids.php:103
+#, php-format
+msgid "tranche %1$d · livraison %2$s"
+msgstr ""
+
+#: inc/livraison-poids.php:103
+msgid "sans supplément"
+msgstr ""
+
+#: inc/options-simples.php:16
+msgid "Température"
+msgstr ""
+
+#: inc/options-simples.php:17
+msgid "Glace"
+msgstr ""
+
+#: inc/options-simples.php:18
+msgid "Douceur"
+msgstr ""
+
+#: inc/options-simples.php:29
+#: inc/variations.php:26
+msgid "Faites-le vôtre."
+msgstr ""
+
+#: inc/produit-star.php:54
+msgid "★ Produit star"
+msgstr ""
+
+#: inc/retrait.php:25
+msgid "Retrait en boutique (Click & Collect)"
+msgstr ""
+
+#: inc/retrait.php:27
+msgid "Texte affiché au client pendant la validation de commande, sur la page de confirmation et dans l'e-mail de commande, quand il choisit le retrait en boutique."
+msgstr ""
+
+#: inc/retrait.php:38
+msgid "Lieu de retrait"
+msgstr ""
+
+#: inc/seo.php:55
+#, php-format
+msgid "%1$s : bubble tea à commander en ligne et à retirer en boutique."
+msgstr ""
+
+#: inc/seo.php:63
+msgid "Bubble tea à commander en ligne et à retirer en boutique"
+msgstr ""
+
+#: inc/seo.php:71
+msgid "La carte"
+msgstr ""
+
+#: inc/seo.php:72
+msgid "Thés au lait, thés aux fruits et thés à la mousse de lait Gong cha, personnalisables et à retirer en boutique."
+msgstr ""
+
+#: inc/setup.php:33
+msgid "Promo !"
+msgstr ""
+
+#: inc/ventes-croisees.php:38
+msgid "à partir de"
+msgstr ""
+
+#: single-membre.php:31
+msgid "Sa boisson préférée"
+msgstr ""
+
+#: single-membre.php:33
+msgid "Commander la même"
+msgstr ""
+
+#: single-membre.php:39
+msgid "Retour à l’équipe"
+msgstr ""
+
+#: woocommerce/emails/customer-pret-retrait.php:14
+#: woocommerce/emails/plain/customer-pret-retrait.php:13
+#, php-format
+msgid "Bonjour %s,"
+msgstr ""
+
+#: woocommerce/emails/customer-pret-retrait.php:15
+#: woocommerce/emails/plain/customer-pret-retrait.php:15
+#, php-format
+msgid "Bonne nouvelle : votre commande n° %s est prête. Elle vous attend au comptoir Click & Collect."
+msgstr ""
+
+#: woocommerce/emails/customer-pret-retrait.php:17
+#, php-format
+msgid "Montant à régler sur place : %s."
+msgstr ""
