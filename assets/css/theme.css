@@ -1381,3 +1381,25 @@ body.woocommerce-checkout form.checkout tr.gc-creneau select {
    tant qu'il était fermé : il n'est plus affiché avant l'ouverture.
    ========================================================================== */
 .storefront-handheld-footer-bar ul li.search:not(.active) .site-search { visibility: hidden; }
+
+/* ==========================================================================
+   IT-12 · Page Collections (US-12.3) : toutes les collections sur une page
+   ========================================================================== */
+.gc-collections__entete { margin-bottom: var(--espace-8); }
+.gc-collections__titre { margin: 0 0 var(--espace-3); }
+.gc-collections__intro p { margin: 0; font-size: var(--texte-courant); line-height: 1.45; max-width: 40em; }
+.gc-collections__sommaire { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--espace-6); }
+.gc-collections__sommaire a {
+	display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+	padding: 0 20px; border-radius: var(--rayon-pilule);
+	background: var(--fond-creme-pastille); color: var(--couleur-brun);
+	font-weight: 600; text-decoration: none;
+}
+.gc-collections__sommaire a:hover { background: var(--accent-lavande); }
+.gc-collections__sommaire a span { font-weight: 400; color: #6E625F; }
+.gc-collections__bloc { margin-bottom: var(--espace-16); scroll-margin-top: var(--espace-6); }
+.gc-collections__bloc .gc-collection-bandeau { margin-bottom: var(--espace-6); }
+.gc-collections__voir { align-self: flex-start; color: var(--couleur-brun); font-weight: 700; text-decoration: underline; }
+@media (max-width: 767px) {
+	.gc-collections__bloc .gc-collection-bandeau { padding: 28px 24px; }
+}
