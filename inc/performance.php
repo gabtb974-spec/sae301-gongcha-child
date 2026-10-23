@@ -83,3 +83,17 @@ function gongcha_vider_cache_star() {
 }
 add_action( 'woocommerce_order_status_changed', 'gongcha_vider_cache_star' );
 add_action( 'save_post_product', 'gongcha_vider_cache_star' );
+
+/* Suivi de provenance des commandes de WooCommerce (« order attribution ») : désactivé.
+   Son script et sourcebuster.js coûtaient 0,5 s de calcul sur mobile (Lighthouse), et il dépose des cookies
+   de mesure d'origine (UTM) que la politique de confidentialité (IT-22) n'annonce pas. */
+add_filter( 'pre_option_woocommerce_feature_order_attribution_enabled', function () {
+	return 'no';
+} );
+
+/* jQuery Migrate : couche de compatibilité pour d'anciens scripts, inutile ici (WooCommerce et le thème utilisent jQuery 3). */
+add_action( 'wp_default_scripts', function ( $scripts ) {
+	if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
+		$scripts->registered['jquery']->deps = array_diff( $scripts->registered['jquery']->deps, array( 'jquery-migrate' ) );
+	}
+} );

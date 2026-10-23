@@ -16,15 +16,15 @@ AUDIT='
 set -e
 LH="$1"; O="$2"; CF="$3"
 F="--quiet --only-categories=performance,accessibility,best-practices,seo --output=html --output=json"
-for i in 1 2 3; do $LH "$URL" $F --chrome-flags="$CF" --output-path="$O/.m$i" >/dev/null 2>&1 || exit 1; done
+for i in 1 2 3; do $LH "$URL" $F --chrome-flags="$CF" --output-path="$O/tmp-mobile-$i" >/dev/null 2>&1 || exit 1; done
 $LH "$URL" $F --preset=desktop --chrome-flags="$CF" --output-path="$O/produit-desktop" >/dev/null 2>&1 || exit 1
 node -e "
 const fs=require(\"fs\"),o=process.argv[1];
-const runs=[1,2,3].map(i=>({i,r:JSON.parse(fs.readFileSync(o+\"/.m\"+i+\".report.json\"))}));
+const runs=[1,2,3].map(i=>({i,r:JSON.parse(fs.readFileSync(o+\"/tmp-mobile-\"+i+\".report.json\"))}));
 runs.sort((a,b)=>a.r.categories.performance.score-b.r.categories.performance.score);
 const med=runs[1].i;
-for(const ext of [\"json\",\"html\"]) fs.renameSync(o+\"/.m\"+med+\".report.\"+ext,o+\"/produit-mobile.report.\"+ext);
-for(const f of fs.readdirSync(o)) if(f.startsWith(\".m\")) fs.unlinkSync(o+\"/\"+f);
+for(const ext of [\"json\",\"html\"]) fs.writeFileSync(o+\"/produit-mobile.report.\"+ext, fs.readFileSync(o+\"/tmp-mobile-\"+med+\".report.\"+ext));
+for(const f of fs.readdirSync(o)) if(f.startsWith(\"tmp-mobile-\")) fs.unlinkSync(o+\"/\"+f);
 const ligne=(n,r)=>{const c=r.categories,s=k=>Math.round(c[k].score*100);
  const b=Object.keys(c).filter(k=>s(k)<80);
  console.log(\"  \"+n.padEnd(9)+[\"performance\",\"accessibility\",\"best-practices\",\"seo\"].map(k=>c[k].title+\" \"+s(k)).join(\" · \")+(b.length?\"   ⚠ sous 80 : \"+b.join(\", \"):\"   ✓\"));};
@@ -54,3 +54,5 @@ ROUTEUR="$(docker inspect -f '{{(index .NetworkSettings.Networks "ddev_default")
 echo "  4 passages (3 mobile + 1 ordinateur), environ 2 min…"
 docker run --rm --network ddev_default --add-host "$HOTE:$ROUTEUR" -v "$OUT:/out" -e URL="$URL" -e AUDIT="$AUDIT" \
 	gongcha-lighthouse bash -c 'bash -c "$AUDIT" _ lighthouse /out "--headless=new --no-sandbox --disable-dev-shm-usage --ignore-certificate-errors"'
+# Vérification sur le Mac : le rapport mobile doit dater de cet audit
+if [ -n "$(find "$OUT/produit-mobile.report.json" -mmin -10 2>/dev/null)" ]; then echo "  Rapports enregistrés dans docs/lighthouse/ ✓"; else echo "  ⚠ Le rapport mobile n'a pas été remplacé"; ls -la "$OUT"; fi
