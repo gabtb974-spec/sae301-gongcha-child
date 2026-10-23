@@ -1385,21 +1385,58 @@ body.woocommerce-checkout form.checkout tr.gc-creneau select {
 /* ==========================================================================
    IT-12 · Page Collections (US-12.3) : toutes les collections sur une page
    ========================================================================== */
-.gc-collections__entete { margin-bottom: var(--espace-8); }
-.gc-collections__titre { margin: 0 0 var(--espace-3); }
-.gc-collections__intro p { margin: 0; font-size: var(--texte-courant); line-height: 1.45; max-width: 40em; }
-.gc-collections__sommaire { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--espace-6); }
+html:has(.gc-collections) { scroll-behavior: smooth; }
+.gc-collections { padding-bottom: var(--espace-8); }
+
+/* En-tête : carte crème, sommaire en pastilles */
+.gc-collections__entete {
+	display: flex; flex-direction: column; gap: var(--espace-3);
+	padding: 48px 44px; margin-bottom: var(--espace-12);
+	border-radius: var(--rayon-carte);
+	background: var(--fond-creme);
+}
+.gc-collections__surtitre { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--couleur-rouge-profond); }
+.gc-collections__titre { margin: 0; font-size: var(--texte-h1); line-height: 1.1; color: var(--couleur-brun); }
+.gc-collections__intro p { margin: 0; font-size: var(--texte-courant); line-height: 1.5; max-width: 38em; color: var(--couleur-brun); }
+.gc-collections__sommaire { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--espace-3); }
 .gc-collections__sommaire a {
-	display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
-	padding: 0 20px; border-radius: var(--rayon-pilule);
-	background: var(--fond-creme-pastille); color: var(--couleur-brun);
+	display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
+	padding: 0 20px 0 14px; border-radius: var(--rayon-pilule);
+	background: var(--couleur-blanc); color: var(--couleur-brun);
+	box-shadow: inset 0 0 0 1px rgba(56, 47, 45, 0.12);
+	font-weight: 600; text-decoration: none;
+	transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.gc-collections__sommaire a:hover,
+.gc-collections__sommaire a:focus-visible { background: var(--fond-creme-pastille); box-shadow: inset 0 0 0 1px var(--couleur-brun); }
+.gc-collections__pastille { width: 18px; height: 18px; border-radius: 50%; background: var(--degrade-creations); flex: none; }
+.gc-collections__sommaire .term-fruite-et-frais .gc-collections__pastille { background: var(--degrade-the-aux-fruits); }
+.gc-collections__sommaire .term-gourmand .gc-collections__pastille { background: var(--degrade-the-au-lait); }
+.gc-collections__sommaire .term-sans-lait .gc-collections__pastille { background: linear-gradient(180deg, #E0C7E6 0%, #FCF6ED 100%); box-shadow: inset 0 0 0 1px rgba(56, 47, 45, 0.15); }
+.gc-collections__nb { font-weight: 400; color: #6E625F; }
+
+/* Une collection : bandeau (texte à gauche, lien à droite) puis sa grille */
+.gc-collections__bloc { margin-bottom: var(--espace-16); scroll-margin-top: var(--espace-6); }
+.gc-collections__bloc:last-child { margin-bottom: 0; }
+.gc-collections__bandeau.gc-collection-bandeau {
+	flex-direction: row; align-items: flex-end; justify-content: space-between; gap: var(--espace-6);
+	margin-bottom: var(--espace-8);
+}
+.gc-collections__bandeau-texte { display: flex; flex-direction: column; gap: 12px; }
+.gc-collections__voir {
+	flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+	padding: 0 22px; border-radius: var(--rayon-pilule);
+	background: var(--couleur-blanc); color: var(--couleur-brun);
 	font-weight: 600; text-decoration: none;
 }
-.gc-collections__sommaire a:hover { background: var(--accent-lavande); }
-.gc-collections__sommaire a span { font-weight: 400; color: #6E625F; }
-.gc-collections__bloc { margin-bottom: var(--espace-16); scroll-margin-top: var(--espace-6); }
-.gc-collections__bloc .gc-collection-bandeau { margin-bottom: var(--espace-6); }
-.gc-collections__voir { align-self: flex-start; color: var(--couleur-brun); font-weight: 700; text-decoration: underline; }
+.gc-collections__voir:hover,
+.gc-collections__voir:focus-visible { background: var(--couleur-brun); color: var(--couleur-blanc); }
+.gc-collections ul.products { margin-bottom: 0; }
+
 @media (max-width: 767px) {
-	.gc-collections__bloc .gc-collection-bandeau { padding: 28px 24px; }
+	.gc-collections__entete { padding: 32px 24px; margin-bottom: var(--espace-8); }
+	.gc-collections__sommaire { flex-wrap: nowrap; overflow-x: auto; margin-right: -24px; padding-right: 24px; scrollbar-width: none; }
+	.gc-collections__sommaire a { flex: none; }
+	.gc-collections__bandeau.gc-collection-bandeau { flex-direction: column; align-items: flex-start; padding: 28px 24px; margin-bottom: var(--espace-6); }
+	.gc-collections__bloc { margin-bottom: var(--espace-12); }
 }

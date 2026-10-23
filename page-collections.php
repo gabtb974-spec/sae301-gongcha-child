@@ -15,6 +15,7 @@ $gc_collections = get_terms( array( 'taxonomy' => 'collection', 'hide_empty' => 
 	<main id="main" class="site-main gc-collections" role="main">
 
 		<header class="gc-collections__entete">
+			<span class="gc-collections__surtitre"><?php esc_html_e( 'Nos collections', 'gongcha-child' ); ?></span>
 			<h1 class="gc-collections__titre"><?php the_title(); ?></h1>
 			<?php
 			while ( have_posts() ) :
@@ -27,7 +28,7 @@ $gc_collections = get_terms( array( 'taxonomy' => 'collection', 'hide_empty' => 
 			<?php if ( $gc_collections && ! is_wp_error( $gc_collections ) ) : ?>
 				<nav class="gc-collections__sommaire" aria-label="<?php esc_attr_e( 'Aller à une collection', 'gongcha-child' ); ?>">
 					<?php foreach ( $gc_collections as $gc_terme ) : ?>
-						<a href="#collection-<?php echo esc_attr( $gc_terme->slug ); ?>"><?php echo esc_html( $gc_terme->name ); ?> <span>(<?php echo (int) $gc_terme->count; ?>)</span></a>
+						<a class="term-<?php echo esc_attr( $gc_terme->slug ); ?>" href="#collection-<?php echo esc_attr( $gc_terme->slug ); ?>"><span class="gc-collections__pastille" aria-hidden="true"></span><?php echo esc_html( $gc_terme->name ); ?> <span class="gc-collections__nb">(<?php echo (int) $gc_terme->count; ?>)</span></a>
 					<?php endforeach; ?>
 				</nav>
 			<?php endif; ?>
@@ -49,13 +50,15 @@ $gc_collections = get_terms( array( 'taxonomy' => 'collection', 'hide_empty' => 
 				) );
 				?>
 				<section id="collection-<?php echo esc_attr( $gc_terme->slug ); ?>" class="gc-collections__bloc term-<?php echo esc_attr( $gc_terme->slug ); ?>" aria-labelledby="titre-<?php echo esc_attr( $gc_terme->slug ); ?>">
-					<div class="gc-collection-bandeau">
-						<span class="gc-collection-bandeau__surtitre"><?php esc_html_e( 'Collection', 'gongcha-child' ); ?></span>
-						<h2 id="titre-<?php echo esc_attr( $gc_terme->slug ); ?>" class="gc-collection-bandeau__titre"><?php echo esc_html( $gc_terme->name ); ?></h2>
-						<?php if ( $gc_terme->description ) : ?>
-							<div class="gc-collection-bandeau__texte"><?php echo wp_kses_post( wpautop( $gc_terme->description ) ); ?></div>
-						<?php endif; ?>
-						<a class="gc-collections__voir" href="<?php echo esc_url( get_term_link( $gc_terme ) ); ?>"><?php echo esc_html( sprintf( __( 'Voir la collection %s', 'gongcha-child' ), $gc_terme->name ) ); ?> →</a>
+					<div class="gc-collection-bandeau gc-collections__bandeau">
+						<div class="gc-collections__bandeau-texte">
+							<span class="gc-collection-bandeau__surtitre"><?php echo esc_html( sprintf( _n( 'Collection · %d thé', 'Collection · %d thés', $gc_terme->count, 'gongcha-child' ), $gc_terme->count ) ); ?></span>
+							<h2 id="titre-<?php echo esc_attr( $gc_terme->slug ); ?>" class="gc-collection-bandeau__titre"><?php echo esc_html( $gc_terme->name ); ?></h2>
+							<?php if ( $gc_terme->description ) : ?>
+								<div class="gc-collection-bandeau__texte"><?php echo wp_kses_post( wpautop( $gc_terme->description ) ); ?></div>
+							<?php endif; ?>
+						</div>
+						<a class="gc-collections__voir" href="<?php echo esc_url( get_term_link( $gc_terme ) ); ?>"><?php esc_html_e( 'Voir la collection', 'gongcha-child' ); ?> <span aria-hidden="true">→</span><span class="screen-reader-text"> <?php echo esc_html( $gc_terme->name ); ?></span></a>
 					</div>
 					<?php if ( $gc_produits->have_posts() ) : ?>
 						<div class="woocommerce columns-3">
